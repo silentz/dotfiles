@@ -1,5 +1,6 @@
 local modules = {
     "silentz.options",
+    "silentz.keymaps",
 }
 
 
