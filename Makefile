@@ -7,4 +7,4 @@ build:
 	docker build . -t ${image_name}
 
 run:
-	docker run -it ${image_name} /bin/sh
+	docker run -it -v ${PWD}/config:/root/config:ro ${image_name} /bin/sh
