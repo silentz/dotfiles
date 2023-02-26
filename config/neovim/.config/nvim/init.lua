@@ -1,5 +1,5 @@
 local modules = {
-    
+    "silentz.options",
 }
 
 
