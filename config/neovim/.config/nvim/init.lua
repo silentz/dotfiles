@@ -5,6 +5,7 @@ local modules = {
     "silentz.cmp",
     "silentz.lsp",
     "silentz.telescope",
+    "silentz.whichkey",
 }
 
 
