@@ -3,6 +3,7 @@ local modules = {
     "silentz.keymaps",
     "silentz.colorscheme",
     "silentz.cmp",
+    "silentz.lsp",
 }
 
 
