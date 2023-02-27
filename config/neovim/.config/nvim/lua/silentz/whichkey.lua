@@ -117,6 +117,7 @@ local mappings = {
     s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
+    c = { "<cmd>Neogen<cr>", "Make docstring" },
   },
 }
 

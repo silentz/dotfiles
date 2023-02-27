@@ -57,3 +57,4 @@ keymap("t", "<C-Right>", "<C-\\><C-N><C-w>l", term_opts)
 -- Telescope
 -- Better grep
 keymap("n", "<C-f>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<C-c>", "<cmd>Neogen<cr>", opts)
