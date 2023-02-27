@@ -6,3 +6,4 @@ end
 require "silentz.lsp.mason"
 require("silentz.lsp.handlers").setup()
 require "silentz.lsp.null-ls"
+require "silentz.lsp.docstrings"
