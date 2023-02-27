@@ -1,13 +1,13 @@
 local servers = {
     -- Python
-    -- "pyright",
+    "pyright",
 
     -- Golang
-    -- "gopls",
+    "gopls",
 
     -- C/C++/Rust/Asm
     -- "clangd",
-    "asm_lsp",
+    -- "asm_lsp",
     -- "rust-analyser",
 
     -- Java/Kotlin
