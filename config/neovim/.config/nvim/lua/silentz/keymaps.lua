@@ -55,6 +55,5 @@ keymap("t", "<C-Up>",    "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-Right>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope
--- Better grep and find
+-- Better grep
 keymap("n", "<C-f>", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<C-F>", "<cmd>Telescope find_files<cr>", opts)

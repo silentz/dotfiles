@@ -81,6 +81,8 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["f"] = { "<cmd>Telescope live_grep<cr>", "Find with grep" },
+  ["F"] = { "<cmd>Telescope find_files<cr>", "Find files" },
 
   g = {
     name = "Git",
