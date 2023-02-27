@@ -3,7 +3,7 @@ local util = require 'lspconfig.util'
 return {
   default_config = {
     cmd = { 'asm-lsp' },
-    filetypes = { 'asm', 'vmasm' },
+    filetypes = { 'asm', 'vmasm', 's', 'S' },
     root_dir = util.find_git_ancestor,
   },
   docs = {
