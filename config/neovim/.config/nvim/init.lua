@@ -4,6 +4,7 @@ local modules = {
     "silentz.colorscheme",
     "silentz.cmp",
     "silentz.lsp",
+    "silentz.telescope",
 }
 
 

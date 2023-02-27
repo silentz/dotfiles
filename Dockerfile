@@ -9,4 +9,4 @@ RUN apk add python3
 # RUN go install golang.org/x/tools/gopls@latest
 
 WORKDIR /root
-ENV PATH=/root/go/bin:/bin:/usr/bin:/usr/local/bin
+ENV PATH=/root/go/bin:/root/.config/nvim/bin:/bin:/usr/bin:/usr/local/bin
