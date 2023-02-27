@@ -1,33 +1,42 @@
 local servers = {
     -- Python
-    "pyright",
+    -- "pyright",
+
     -- Golang
-    "gopls",
-    -- C/C++/Asm/Rust
-    "clangd",
-    "asm-lsp",
-    "rust-analyser",
+    -- "gopls",
+
+    -- C/C++/Rust/Asm
+    -- "clangd",
+    "asm_lsp",
+    -- "rust-analyser",
+
     -- Java/Kotlin
-    "kotlin-language-server",
-    "jdtls",
+    -- "kotlin-language-server",
+    -- "jdtls",
+
     -- Lua
-    "lua-language-server",
+    -- "lua-language-server",
+
     -- HTML/CSS/SCSS
-    "html-lsp",
-    "css-lsp",
+    -- "html-lsp",
+    -- "css-lsp",
+
     -- JavaScript/Vue
-    "typescript-language-server",
-    "vue-language-server",
+    -- "typescript-language-server",
+    -- "vue-language-server",
 
     -- Latex
-    "ltex-ls",
+    -- "ltex-ls",
+
     -- SQL
-    "sqlls",
+    -- "sqlls",
+
     -- Docker
-    "dockerfile-language-server",
-    "docker-compose-language-server",
+    -- "dockerfile-language-server",
+    -- "docker-compose-language-server",
+
     -- Bash
-    "bash-language-server",
+    -- "bash-language-server",
 }
 
 local settings = {
