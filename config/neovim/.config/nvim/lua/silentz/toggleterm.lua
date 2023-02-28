@@ -32,7 +32,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 
 local gitui = Terminal:new({
-    cmd = "gitui",
+    cmd = "gitui --polling",
     hidden = true,
     on_open = function(term)
 		vim.api.nvim_buf_set_keymap(term.bufnr, "t", [[<c-\>]], "<cmd>close<CR>", { noremap = true, silent = true })
