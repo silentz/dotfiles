@@ -71,7 +71,7 @@ neotree.setup({
         },
         mappings = {
             ["?"] = "show_help",
-            ["<cr>"] = "open",
+            ["<cr>"] = "open_tabnew",
             ["P"] = { "toggle_preview", config = { use_float = true } }, -- enter preview mode, which shows the current node without focusing
             ["a"] = { "add", config = { show_path = "none" } },
             ["d"] = "delete",
