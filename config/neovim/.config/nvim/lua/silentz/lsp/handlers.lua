@@ -54,6 +54,8 @@ end
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
+    keymap(bufnr, "n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+    keymap(bufnr, "i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 end
 
 M.on_attach = function(client, bufnr)
