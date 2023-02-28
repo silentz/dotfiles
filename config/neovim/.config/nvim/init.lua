@@ -14,6 +14,7 @@ local modules = {
     "silentz.autopairs",
     "silentz.neotree",
     "silentz.gitsigns",
+    "silentz.toggleterm",
 }
 
 
