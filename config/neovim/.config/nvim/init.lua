@@ -16,6 +16,7 @@ local modules = {
     "silentz.gitsigns",
     "silentz.toggleterm",
     "silentz.comments",
+    "silentz.indents",
 }
 
 
