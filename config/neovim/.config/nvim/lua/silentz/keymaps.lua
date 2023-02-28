@@ -64,6 +64,8 @@ keymap("n", "<C-q>", "<cmd>SymbolsOutline<cr>", opts)
 
 -- Tabs
 keymap("n", "<C-t>", "<cmd>tabnew<cr>", opts)
+keymap("n", "<C-PageUp>", "<cmd>tabprevious<cr>", opts)
+keymap("n", "<C-PageDown>", "<cmd>tabnext<cr>", opts)
 
 -- Neotree
 keymap("n", "<C-n>", "<cmd>NeoTreeRevealToggle<cr>", opts)
