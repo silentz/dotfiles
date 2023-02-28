@@ -11,6 +11,15 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
+require("lsp_signature").setup({
+    --      floating_window = false,
+    hint_enable = false,
+    handler_opts = {
+        border = "single",
+    },
+    max_width = 80,
+})
+
 local check_backspace = function()
     local col = vim.fn.col "." - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
