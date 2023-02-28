@@ -34,6 +34,10 @@ local Terminal = require("toggleterm.terminal").Terminal
 local gitui = Terminal:new({
     cmd = "gitui",
     hidden = true,
+    on_open = function(term)
+		vim.api.nvim_buf_set_keymap(term.bufnr, "t", [[<c-\>]], "<cmd>close<CR>", { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", "<cmd>close<CR>", { noremap = true, silent = true })
+	end,
 })
 
 function _GITUI_TOGGLE()
