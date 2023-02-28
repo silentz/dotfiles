@@ -12,12 +12,13 @@ end
 require("luasnip/loaders/from_vscode").lazy_load()
 
 require("lsp_signature").setup({
-    --      floating_window = false,
-    hint_enable = false,
+    bind = true,
+    hint_enable = true,
     handler_opts = {
         border = "single",
     },
     max_width = 80,
+    always_trigger = true,
 })
 
 local check_backspace = function()

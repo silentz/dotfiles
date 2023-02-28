@@ -221,7 +221,7 @@ local function set_groups()
     LeapLabelSelected = { fg = colors.bg, bg = colors.tag },
 
     -- LSP Signature.
-    LspSignatureActiveParameter = { italic = true },
+    LspSignatureActiveParameter = { fg = colors.keyword, italic = true },
 
     -- Notify.
     NotifyERROR = { fg = colors.vcs_removed },
