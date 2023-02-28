@@ -12,15 +12,20 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
     debug = false,
     sources = {
-        -- formatting.prettier,
-        -- formatting.isort,
-        -- formatting.black,
-        -- formatting.stylua,
-        -- formatting.gofmt,
-        -- formatting.beautysh,
-        -- formatting.clang_format.with({
-        --     extra_args = { "-style", "{IndentWidth: 4, ColumnLimit: 300}" },
-        -- }),
+        formatting.prettier,
+        formatting.isort,
+        formatting.black,
+        formatting.stylua,
+        formatting.gofmt,
+        formatting.beautysh,
+        formatting.asmfmt,
+        formatting.rustfmt,
+        formatting.ktlint,
+        formatting.google_java_format,
+        formatting.dart_format,
+        formatting.clang_format.with({
+            extra_args = { "-style", "{IndentWidth: 4, ColumnLimit: 300}" },
+        }),
         null_ls.builtins.code_actions.gitsigns,
     },
     on_attach = function(client, bufnr)
