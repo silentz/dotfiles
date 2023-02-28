@@ -1,6 +1,6 @@
 FROM archlinux:base
 
-RUN pacman -Sy stow neovim
+RUN pacman -Sy --noconfirm stow neovim
 
 WORKDIR /root
 ENV PATH="$PATH:/root/.config/nvim/bin"
