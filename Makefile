@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-image_name=devenv
+image_name=env_container
 
 .PHONY: build
 build: build-alpine
@@ -11,12 +11,12 @@ run:
 
 .PHONY: build-alpine
 build-alpine:
-	docker build --file ./devenv/Dockerfile-alpine -t ${image_name} .
+	docker build --file ./envs/Dockerfile-alpine -t ${image_name} .
 
 .PHONY: build-archlinux
 build-archlinux:
-	docker build --file ./devenv/Dockerfile-archlinux -t ${image_name} .
+	docker build --file ./envs/Dockerfile-archlinux -t ${image_name} .
 
 .PHONY: build-ubuntu-22.04
 build-ubuntu-22.04:
-	docker build --file ./devenv/Dockerfile-ubuntu_22.04 -t ${image_name} .
+	docker build --file ./envs/Dockerfile-ubuntu_22.04 -t ${image_name} .
