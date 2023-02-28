@@ -60,7 +60,10 @@ keymap("n", "<C-f>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<C-c>", "<cmd>Neogen<cr>", opts)
 
 -- Outline symbols
-keymap("n", "<C-t>", "<cmd>SymbolsOutline<cr>", opts)
+keymap("n", "<C-q>", "<cmd>SymbolsOutline<cr>", opts)
+
+-- Tabs
+keymap("n", "<C-t>", "<cmd>tabnew<cr>", opts)
 
 -- Neotree
 keymap("n", "<C-n>", "<cmd>NeoTreeRevealToggle<cr>", opts)
