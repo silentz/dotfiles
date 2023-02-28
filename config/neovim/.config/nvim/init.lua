@@ -8,6 +8,7 @@ local modules = {
     "silentz.whichkey",
     "silentz.treesitter",
     "silentz.colorizer",
+    "silentz.lualine",
 }
 
 
