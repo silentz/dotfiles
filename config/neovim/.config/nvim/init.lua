@@ -7,6 +7,7 @@ local modules = {
     "silentz.telescope",
     "silentz.whichkey",
     "silentz.treesitter",
+    "silentz.colorizer",
 }
 
 
