@@ -11,6 +11,7 @@ local modules = {
     "silentz.colorizer",
     "silentz.lualine",
     "silentz.symbols-outline",
+    "silentz.autopairs",
 }
 
 
