@@ -13,6 +13,10 @@ run:
 build-alpine:
 	docker build --file ./devenv/Dockerfile-alpine -t ${image_name} .
 
+.PHONY: build-archlinux
+build-archlinux:
+	docker build --file ./devenv/Dockerfile-archlinux -t ${image_name} .
+
 .PHONY: build-ubuntu-22.04
 build-ubuntu-22.04:
 	docker build --file ./devenv/Dockerfile-ubuntu_22.04 -t ${image_name} .
