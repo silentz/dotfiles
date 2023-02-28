@@ -1,1 +1,7 @@
-FROM
+FROM ubuntu:22.04
+
+RUN apt update
+RUN apt install -y neovim stow
+
+WORKDIR /root
+ENV PATH="$PATH:/root/.config/nvim/bin"

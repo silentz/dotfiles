@@ -1,10 +1,18 @@
 SHELL := /bin/bash
-.PHONY: build run
 
-image_name=test
+image_name=devenv
 
-build:
-	docker build . -t ${image_name}
+.PHONY: build
+build: build-alpine
 
+.PHONY: run
 run:
 	docker run -it -v ${PWD}/config:/root/config:rw ${image_name} /bin/sh
+
+.PHONY: build-alpine
+build-alpine:
+	docker build --file ./devenv/Dockerfile-alpine -t ${image_name} .
+
+.PHONY: build-ubuntu-22.04
+build-ubuntu-22.04:
+	docker build --file ./devenv/Dockerfile-ubuntu_22.04 -t ${image_name} .
