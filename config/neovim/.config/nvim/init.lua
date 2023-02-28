@@ -15,6 +15,7 @@ local modules = {
     "silentz.neotree",
     "silentz.gitsigns",
     "silentz.toggleterm",
+    "silentz.comments",
 }
 
 
