@@ -61,3 +61,6 @@ keymap("n", "<C-c>", "<cmd>Neogen<cr>", opts)
 
 -- Outline symbols
 keymap("n", "<C-t>", "<cmd>SymbolsOutline<cr>", opts)
+
+-- Neotree
+keymap("n", "<C-n>", "<cmd>NeoTreeRevealToggle<cr>", opts)

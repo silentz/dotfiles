@@ -12,6 +12,7 @@ local modules = {
     "silentz.lualine",
     "silentz.symbols-outline",
     "silentz.autopairs",
+    "silentz.neotree",
 }
 
 
