@@ -1,4 +1,5 @@
 local modules = {
+    "silentz.impatient",
     "silentz.options",
     "silentz.keymaps",
     "silentz.colorscheme",
