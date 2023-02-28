@@ -108,6 +108,10 @@ function M.select_compiler_args(repo, compiler)
       "-I./src",
       repo.files,
       "-shared",
+      "-nostdlib",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-l:libstdc++.a",
       "-Os",
     }
     if
