@@ -10,6 +10,7 @@ local modules = {
     "silentz.treesitter",
     "silentz.colorizer",
     "silentz.lualine",
+    "silentz.symbols-outline",
 }
 
 
