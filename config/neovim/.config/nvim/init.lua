@@ -6,6 +6,7 @@ local modules = {
     "silentz.lsp",
     "silentz.telescope",
     "silentz.whichkey",
+    "silentz.treesitter",
 }
 
 
