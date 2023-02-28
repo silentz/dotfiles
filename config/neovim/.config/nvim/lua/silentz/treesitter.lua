@@ -4,13 +4,32 @@ if not status_ok then
 end
 
 configs.setup({
-    ensure_installed = {"bash", "python"},
-  -- ensure_installed = { "arduino", "bash", "c", "cmake", "cpp", "css", "cuda",
-  --                      "dart", "dockerfile", "go", "gomod", "gosum",
-  --                      "html", "htmldjango", "html_tags", "http", "java",
-  --                      "javascript", "json", "kotlin", "latex", "make",
-  --                      "markdown", "markdown_inline", "python",
-  --                      "rust", "solidity", "sql", "typescript", "vue", "yaml" },
+    ensure_installed = {
+        -- languages
+        "bash",
+        "c", "cpp", "cuda",
+        "dart",
+        "go",
+        "java", "kotlin",
+        "javascript", "typescript", "tsx", "vue",
+        "latex",
+        "lua",
+        "python",
+        "rust",
+        "solidity",
+
+        -- web
+        "html", "css", "htmldjango", "http",
+
+        -- misc
+        "arduino",
+        "cmake",
+        "dockerfile",
+        "json",
+        "make",
+        -- "markdown", "markdown_inline",
+        "yaml",
+    },
     ignore_install = {}, -- List of parsers to ignore installing
     highlight = {
         enable = true, -- false will disable the whole extension
