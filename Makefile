@@ -7,7 +7,7 @@ build: build-alpine
 
 .PHONY: run
 run:
-	docker run -it -v ${PWD}/config:/root/config:rw ${image_name} /bin/sh
+	docker run -it -v ${PWD}/config:/root/config:rw ${image_name} /bin/bash
 
 .PHONY: build-alpine
 build-alpine:
