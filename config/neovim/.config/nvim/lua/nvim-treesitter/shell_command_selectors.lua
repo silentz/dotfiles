@@ -112,6 +112,7 @@ function M.select_compiler_args(repo, compiler)
       "-ffreestanding",
       "-fno-builtin",
       "-l:libstdc++.a",
+      "-fno-use-cxa-atexit",
       "-Os",
     }
     if
