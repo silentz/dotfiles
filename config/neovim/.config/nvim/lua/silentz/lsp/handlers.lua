@@ -1,5 +1,10 @@
 local M = {}
 
+function _SILENTZ_SIGNATURE_HELP ()
+    vim.lsp.buf.hover()
+    vim.lsp.buf.signature_help()
+end
+
 M.setup = function()
     local signs = {
 
@@ -45,8 +50,9 @@ end
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap
-    keymap(bufnr, "n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-    keymap(bufnr, "i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+    keymap(bufnr, "n", "<C-s>", "<cmd>lua _SILENTZ_SIGNATURE_HELP()<cr>", opts)
+    keymap(bufnr, "i", "<C-s>", "<cmd>lua _SILENTZ_SIGNATURE_HELP()<cr>", opts)
+    keymap(bufnr, "n", "<C-e>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
