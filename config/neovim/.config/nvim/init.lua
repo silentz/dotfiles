@@ -13,6 +13,7 @@ local modules = {
     "silentz.symbols-outline",
     "silentz.autopairs",
     "silentz.neotree",
+    "silentz.gitsigns",
 }
 
 
