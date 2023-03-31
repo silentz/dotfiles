@@ -3,7 +3,7 @@ local servers = {
     "pyright",
 
     -- Golang
-    -- "gopls",
+    "gopls",
 
     -- C/C++/Rust/Asm
     -- "clangd",

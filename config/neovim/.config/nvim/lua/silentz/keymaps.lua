@@ -19,6 +19,13 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Insert --
+-- Reload file
+keymap("i", "<C-r>", "<Esc>:e<CR>a", opts)
+
+-- Undo
+keymap("i", "<C-z>", "<Esc>:u<CR>a", opts)
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-Left>",  "<C-w>h", opts)
@@ -29,6 +36,12 @@ keymap("n", "<C-Right>", "<C-w>l", opts)
 -- Move text up and down
 keymap("n", "<S-Down>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<S-Up>",   "<Esc>:m .-2<CR>==", opts)
+
+-- Reload file
+keymap("n", "<C-r>", "<Esc>:e<CR>", opts)
+
+-- Undo
+keymap("n", "<C-z>", "<Esc>:u<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

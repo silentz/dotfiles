@@ -12,12 +12,12 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
     debug = false,
     sources = {
-        formatting.prettier,
+        -- formatting.prettier,
         formatting.isort,
         formatting.black,
         formatting.stylua,
         formatting.gofmt,
-        formatting.beautysh,
+        -- formatting.beautysh,
         formatting.asmfmt,
         formatting.rustfmt,
         formatting.ktlint,
