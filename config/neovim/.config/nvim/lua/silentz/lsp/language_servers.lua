@@ -37,6 +37,9 @@ local servers = {
 
     -- Bash
     -- "bash-language-server",
+
+    -- Dart
+    "dartls",
 }
 
 local settings = {
