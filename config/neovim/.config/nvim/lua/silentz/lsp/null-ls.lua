@@ -15,7 +15,7 @@ null_ls.setup({
         -- formatting.prettier,
         formatting.isort,
         formatting.black,
-        formatting.stylua,
+        -- formatting.stylua,
         formatting.gofmt,
         -- formatting.beautysh,
         formatting.asmfmt,
