@@ -28,7 +28,6 @@ configs.setup({
         "json",
         "make",
         "markdown", "markdown_inline",
-        "yaml",
     },
     ignore_install = {}, -- List of parsers to ignore installing
     highlight = {
