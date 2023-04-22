@@ -27,7 +27,7 @@ configs.setup({
         "dockerfile",
         "json",
         "make",
-        -- "markdown", "markdown_inline",
+        "markdown", "markdown_inline",
         "yaml",
     },
     ignore_install = {}, -- List of parsers to ignore installing
