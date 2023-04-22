@@ -29,6 +29,9 @@ configs.setup({
         "make",
         "markdown", "markdown_inline",
         "vim",
+        -- do not install yaml!
+        -- highlighting out of the box works better and does not crash!!!
+        -- "yaml"
     },
     ignore_install = {}, -- List of parsers to ignore installing
     highlight = {
