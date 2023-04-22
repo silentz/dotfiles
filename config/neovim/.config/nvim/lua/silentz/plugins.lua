@@ -84,6 +84,7 @@ local plugins = {
     "windwp/nvim-autopairs",
     "folke/which-key.nvim",
     "echasnovski/mini.nvim",
+    "silentz/nvim.nocopy-paste",
 }
 
 require("lazy").setup(plugins, opts)
