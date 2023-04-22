@@ -41,6 +41,7 @@ local plugins = {
 
     -- treesitter
     "nvim-treesitter/nvim-treesitter",
+    "danymat/neogen",
 
     -- telescope
     "nvim-telescope/telescope.nvim",
@@ -73,10 +74,16 @@ local plugins = {
     "nvim-lualine/lualine.nvim",
     "lukas-reineke/indent-blankline.nvim",
     "kyazdani42/nvim-web-devicons",
+    "simrat39/symbols-outline.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
 
     -- random
+    "akinsho/toggleterm.nvim",
     "lewis6991/gitsigns.nvim",
     "norcalli/nvim-colorizer.lua",
+    "windwp/nvim-autopairs",
+    "folke/which-key.nvim",
+    "echasnovski/mini.nvim",
 }
 
 require("lazy").setup(plugins, opts)
