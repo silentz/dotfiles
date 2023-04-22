@@ -32,12 +32,51 @@ local opts = {
 }
 
 local plugins = {
+    -- core
+    "folke/lazy.nvim",
+    "nvim-lua/popup.nvim",
+	"nvim-lua/plenary.nvim",
+	"MunifTanjim/nui.nvim",
+    "lewis6991/impatient.nvim",
+
+    -- treesitter
+    "nvim-treesitter/nvim-treesitter",
+
+    -- telescope
+    "nvim-telescope/telescope.nvim",
+
+    -- cmp
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
     "saadparwaiz1/cmp_luasnip",
+
+    -- lsp
+    "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "RRethy/vim-illuminate",
+    "ray-x/lsp_signature.nvim",
+
+    -- snippets
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+
+    -- colorschemes
+    "projekt0n/github-nvim-theme",
+    "Shatur/neovim-ayu",
+
+    -- ui
+    "nvim-lualine/lualine.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    "kyazdani42/nvim-web-devicons",
+
+    -- random
+    "lewis6991/gitsigns.nvim",
+    "norcalli/nvim-colorizer.lua",
 }
 
 require("lazy").setup(plugins, opts)
