@@ -17,6 +17,7 @@ local modules = {
     "silentz.toggleterm",
     "silentz.comments",
     "silentz.indents",
+    "silentz.lazy",
 }
 
 
