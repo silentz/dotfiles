@@ -1,7 +1,8 @@
 local modules = {
-    "silentz.impatient",
-    "silentz.options",
     "silentz.keymaps",
+    "silentz.options",
+    "silentz.lazy",
+    "silentz.impatient",
     "silentz.colorscheme",
     "silentz.cmp",
     "silentz.lsp",
@@ -17,7 +18,6 @@ local modules = {
     "silentz.toggleterm",
     "silentz.comments",
     "silentz.indents",
-    "silentz.lazy",
 }
 
 

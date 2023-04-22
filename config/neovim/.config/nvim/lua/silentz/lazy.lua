@@ -23,9 +23,10 @@ local opts = {
     change_detection = { enabled = true },
     debug = false,
     performance = {
-    rtp = {
-        disabled_plugins = {
-            -- list of disabled plugins
+        rtp = {
+            disabled_plugins = {
+                -- list of disabled plugins
+            },
         },
     },
 }
