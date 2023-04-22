@@ -28,6 +28,7 @@ configs.setup({
         "json",
         "make",
         "markdown", "markdown_inline",
+        "vim",
     },
     ignore_install = {}, -- List of parsers to ignore installing
     highlight = {
