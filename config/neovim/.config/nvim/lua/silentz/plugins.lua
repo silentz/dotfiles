@@ -34,7 +34,7 @@ local opts = {
 local plugins = {
     -- core
     "folke/lazy.nvim",
-    "nvim-lua/popup.nvim",
+    {"nvim-lua/popup.nvim", lazy = false, },
 	"nvim-lua/plenary.nvim",
 	"MunifTanjim/nui.nvim",
     "lewis6991/impatient.nvim",
@@ -48,23 +48,23 @@ local plugins = {
 
     -- cmp
     "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
-    "saadparwaiz1/cmp_luasnip",
+    {"hrsh7th/cmp-buffer", lazy = false, },
+    {"hrsh7th/cmp-path", lazy = false, },
+    {"hrsh7th/cmp-nvim-lsp", lazy = false, },
+    {"hrsh7th/cmp-nvim-lua", lazy = false, },
+    {"saadparwaiz1/cmp_luasnip", lazy = false, },
 
     -- lsp
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "jose-elias-alvarez/null-ls.nvim",
-    "RRethy/vim-illuminate",
+    {"RRethy/vim-illuminate", lazy = false, },
     "ray-x/lsp_signature.nvim",
 
     -- snippets
     "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
+    {"rafamadriz/friendly-snippets", lazy = false, },
 
     -- colorschemes
     "projekt0n/github-nvim-theme",
@@ -73,7 +73,7 @@ local plugins = {
     -- ui
     "nvim-lualine/lualine.nvim",
     "lukas-reineke/indent-blankline.nvim",
-    "kyazdani42/nvim-web-devicons",
+    {"kyazdani42/nvim-web-devicons", lazy = false, },
     "simrat39/symbols-outline.nvim",
     "nvim-neo-tree/neo-tree.nvim",
 
@@ -84,7 +84,7 @@ local plugins = {
     "windwp/nvim-autopairs",
     "folke/which-key.nvim",
     "echasnovski/mini.nvim",
-    "silentz/nvim.nocopy-paste",
+    {"silentz/nvim.nocopy-paste", lazy = false, },
 }
 
 require("lazy").setup(plugins, opts)
