@@ -16,7 +16,7 @@ cd config
 
 3. Stow required configuration:
 ```
-stow neovim
-stow fonts
+stow neovim ~
+stow fonts ~
 ...
 ```
