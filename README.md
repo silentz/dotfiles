@@ -1,4 +1,4 @@
-# devenv
+# dotfiles
 
 ## Setup
 
@@ -16,7 +16,7 @@ cd config
 
 3. Stow required configuration:
 ```
-stow neovim ~
-stow fonts ~
+stow -t $HOME neovim
+stow -t $HOME fonts
 ...
 ```
