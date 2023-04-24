@@ -19,7 +19,7 @@ vim.g.mapleader = " "
 local opts = {
     defaults = { lazy = true },
     ui = { wrap = "true" },
-    checker = { enabled = true },
+    checker = { enabled = false },
     change_detection = { enabled = true },
     debug = false,
     performance = {
