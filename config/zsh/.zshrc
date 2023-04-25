@@ -54,6 +54,7 @@ path+="$HOME/scripts"
 
 path+="/usr/local/go/bin"
 path+="/usr/local/texlive/2021/bin/x86_64-linux/"
+path+="$HOME/node/bin"
 
 path+="$HOME/jdk-18/bin"
 path+="$HOME/flutter/bin"

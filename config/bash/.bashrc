@@ -22,6 +22,7 @@ pathadd "$HOME/scripts"
 
 pathadd "/usr/local/go/bin"
 pathadd "/usr/local/texlive/2021/bin/x86_64-linux/"
+pathadd "$HOME/node/bin"
 
 pathadd "$HOME/jdk-18/bin"
 pathadd "$HOME/flutter/bin"
