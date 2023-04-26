@@ -70,6 +70,7 @@ local opts = {}
 
 for _, server in pairs(servers) do
     opts = {
+        on_init = require("silentz.lsp.handlers").on_init,
         on_attach = require("silentz.lsp.handlers").on_attach,
         capabilities = require("silentz.lsp.handlers").capabilities,
     }

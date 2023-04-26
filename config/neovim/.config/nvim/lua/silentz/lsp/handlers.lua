@@ -1,5 +1,8 @@
 local M = {}
 
+-- require('vim.lsp').set_log_level("debug")
+-- require('vim.lsp.log').set_format_func(vim.inspect)
+
 function _SILENTZ_SIGNATURE_HELP ()
     vim.lsp.buf.hover()
     vim.lsp.buf.signature_help()
@@ -42,6 +45,12 @@ M.setup = function()
         border = "rounded",
     })
 
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    )
+
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
     })
@@ -57,6 +66,10 @@ end
 
 M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
+end
+
+M.on_init = function(client)
+    client.config.flags.debounce_text_changes = 150
 end
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
