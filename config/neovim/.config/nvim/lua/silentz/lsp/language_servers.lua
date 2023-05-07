@@ -26,7 +26,7 @@ local servers = {
     -- "vue-language-server",
 
     -- Latex
-    -- "ltex-ls",
+    "ltex-ls",
 
     -- SQL
     -- "sqlls",
