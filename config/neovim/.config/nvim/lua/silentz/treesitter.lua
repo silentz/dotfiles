@@ -8,7 +8,6 @@ configs.setup({
         -- languages
         "bash",
         "c", "cpp", "cuda",
-        "dart",
         "go",
         "java", "kotlin",
         "javascript", "typescript", "tsx", "vue",
@@ -17,6 +16,10 @@ configs.setup({
         "python",
         "rust",
         "solidity",
+
+        -- Do not activate dart!!!
+        -- nvim-treesitter-dart is broken!!!
+        -- "dart",
 
         -- web
         "html", "css", "htmldjango", "http",
@@ -29,6 +32,7 @@ configs.setup({
         "make",
         "markdown", "markdown_inline",
         "vim",
+
         -- do not install yaml!
         -- highlighting out of the box works better and does not crash!!!
         -- "yaml"
