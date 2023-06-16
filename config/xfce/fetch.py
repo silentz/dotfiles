@@ -1,12 +1,24 @@
 import argparse
 import os
 import xml.etree.ElementTree
-from typing import Any, Dict
+from typing import Any, Callable, Dict
+
+
+def filter_out_empty_key_values(data: dict):
+    result = dict()
+    for k, v in data.items():
+        if v:
+            result[k] = v
+    return result
+
 
 PATCH_MAP_CONFIG = {
     "xfce4-keyboard-shortcuts.xml": {
         "commands": {"default": None},
-        "xfwm4": {"default": None},
+        "xfwm4": {
+            "default": None,
+            "custom": filter_out_empty_key_values,
+        },
     }
 }
 
@@ -22,6 +34,8 @@ def patch_map(data: Any, config: Any) -> Dict[Any, Any]:
             result.pop(key)
         elif isinstance(value, dict):
             result[key] = patch_map(data[key], config[key])
+        elif isinstance(value, Callable):
+            result[key] = value(data[key])
 
     return result
 
@@ -51,6 +65,9 @@ def traverse_property_map(elem: xml.etree.ElementTree.Element) -> Dict[Any, Any]
             result[prop_name] = prop_value
         else:
             raise ValueError(f"unknown property type: {prop_type}")
+
+    elif elem.tag == "value":
+        return elem.get("value")  # type: ignore
 
     return result
 
