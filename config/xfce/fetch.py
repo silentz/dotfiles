@@ -13,7 +13,7 @@ def filter_out_empty_key_values(data: dict):
 
 
 PATCH_MAP_CONFIG = {
-    "xfce4-keyboard-shortcuts.xml": {
+    "xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml": {
         "commands": {"default": None},
         "xfwm4": {
             "default": None,
@@ -87,10 +87,14 @@ def read_xfconf_channel(name: str, path: str) -> Dict[str, Any]:
 
 def fetch_xfconf(root: str, subdir: str) -> Dict[str, Any]:
     conf_root = os.path.join(root, subdir)
+    rel_path = lambda x: os.path.join(subdir, x)
+
     conf_files = [x for x in os.listdir(conf_root)]
     conf_files = {x: os.path.join(conf_root, x) for x in conf_files}
     conf_files = {x: y for x, y in conf_files.items() if y.endswith(".xml")}
-    conf_files = {x: read_xfconf_channel(x, y) for x, y in conf_files.items()}
+    conf_files = {
+        rel_path(x): read_xfconf_channel(rel_path(x), y) for x, y in conf_files.items()
+    }
     return conf_files
 
 
@@ -103,4 +107,8 @@ if __name__ == "__main__":
     args.xfce = os.path.expandvars(args.xfce)
 
     xfconf = fetch_xfconf(args.xfce, "xfconf/xfce-perchannel-xml")
-    print(xfconf)
+
+    for k, v in xfconf.items():
+        print(k)
+        print(v)
+        print("=" * 80)
