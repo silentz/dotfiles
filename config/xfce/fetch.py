@@ -3,6 +3,28 @@ import os
 import xml.etree.ElementTree
 from typing import Any, Dict
 
+PATCH_MAP_CONFIG = {
+    "xfce4-keyboard-shortcuts.xml": {
+        "commands": {"default": None},
+        "xfwm4": {"default": None},
+    }
+}
+
+
+def patch_map(data: Any, config: Any) -> Dict[Any, Any]:
+    result = data.copy()
+
+    for key, value in config.items():
+        if key not in data:
+            continue
+
+        if value is None:
+            result.pop(key)
+        elif isinstance(value, dict):
+            result[key] = patch_map(data[key], config[key])
+
+    return result
+
 
 def traverse_property_map(elem: xml.etree.ElementTree.Element) -> Dict[Any, Any]:
     result = dict()
@@ -39,6 +61,9 @@ def read_xfconf_channel(name: str, path: str) -> Dict[str, Any]:
 
     tree = xml.etree.ElementTree.fromstring(data)
     result_map = traverse_property_map(tree)
+
+    if name in PATCH_MAP_CONFIG:
+        result_map = patch_map(result_map, PATCH_MAP_CONFIG[name])
 
     return result_map
 
