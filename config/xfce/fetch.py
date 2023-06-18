@@ -1,5 +1,6 @@
 import argparse
 import os
+import subprocess
 import xml.etree.ElementTree
 from typing import Any, Callable, Dict
 
@@ -12,6 +13,26 @@ def filter_out_empty_key_values(data: dict):
     return result
 
 
+def rename_synaptic_devices(data: dict) -> dict:
+    result = dict()
+
+    cmd_out = subprocess.run(["xinput", "list", "--name-only"], stdout=subprocess.PIPE)
+    raw_devices_info = cmd_out.stdout.decode()
+
+    devices = raw_devices_info.strip().split("\n")
+    devices = [x.replace(" ", "_") for x in devices]
+    devices = [x.replace(":", "") for x in devices]
+
+    for key, value in data.items():
+        if key in devices:
+            key = key.split("_")[-1]
+            result[key] = value
+        else:
+            result[key] = value
+
+    return result
+
+
 PATCH_MAP_CONFIG = {
     "xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml": {
         "commands": {"default": None},
@@ -19,12 +40,19 @@ PATCH_MAP_CONFIG = {
             "default": None,
             "custom": filter_out_empty_key_values,
         },
-    }
+    },
+    "xfconf/xfce-perchannel-xml/pointers.xml": rename_synaptic_devices,
+    "xfconf/xfce-perchannel-xml/xfce4-notifyd.xml": {
+        "applications": None,
+    },
 }
 
 
 def patch_map(data: Any, config: Any) -> Dict[Any, Any]:
     result = data.copy()
+
+    if isinstance(config, Callable):
+        return config(data)
 
     for key, value in config.items():
         if key not in data:
