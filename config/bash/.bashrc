@@ -23,6 +23,7 @@ pathadd "$HOME/scripts"
 # TODO: fix!!!
 pathadd "/usr/local/texlive/2021/bin/x86_64-linux/"
 
+pathadd "$HOME/go/bin"
 pathadd "$HOME/node/bin"
 pathadd "$HOME/jdk/jdk-20.0.1/bin"
 pathadd "$HOME/flutter/bin"
