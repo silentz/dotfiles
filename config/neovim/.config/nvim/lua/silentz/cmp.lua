@@ -57,19 +57,17 @@ local kind_icons = {
 cmp.setup {
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body) -- For `luasnip` users.
+            luasnip.lsp_expand(args.body)
         end,
     },
     mapping = {
         ["<Up>"]   = cmp.mapping.select_prev_item(),
         ["<Down>"] = cmp.mapping.select_next_item(),
-        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<C-y>"] = cmp.config.disable,
         ["<C-e>"] = cmp.mapping {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         },
-        -- Accept currently selected item. If none selected, `select` first item.
-        -- Set `select` to `false` to only confirm explicitly selected items.
         ["<CR>"] = cmp.mapping.confirm { select = false },
         ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
@@ -111,10 +109,10 @@ cmp.setup {
     },
     sources = {
         { name = "nvim_lsp" },
-        -- { name = "nvim_lua" },
-        -- { name = "luasnip" },
-        -- { name = "buffer" },
-        -- { name = "path" },
+        { name = "nvim_lua" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -130,10 +128,3 @@ cmp.setup {
         native_menu = false,
     },
 }
-
-cmp.setup.filetype('go', {
-    mapping = {
-
-    },
-})
-
