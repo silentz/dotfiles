@@ -59,8 +59,8 @@ cmp.setup {
         expand = function(args)
             luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
-  },
-  mapping = {
+    },
+    mapping = {
         ["<Up>"]   = cmp.mapping.select_prev_item(),
         ["<Down>"] = cmp.mapping.select_next_item(),
         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -93,6 +93,7 @@ cmp.setup {
                     fallback()
                 end
             end, {"i", "s"}),
+        ["<C-x>"] = cmp.mapping.complete(),
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -110,10 +111,10 @@ cmp.setup {
     },
     sources = {
         { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
+        -- { name = "nvim_lua" },
+        -- { name = "luasnip" },
+        -- { name = "buffer" },
+        -- { name = "path" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -129,3 +130,10 @@ cmp.setup {
         native_menu = false,
     },
 }
+
+cmp.setup.filetype('go', {
+    mapping = {
+
+    },
+})
+
