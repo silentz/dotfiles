@@ -31,6 +31,10 @@ local opts = {
     },
 }
 
+local function get_config_directory()
+  return vim.fn.stdpath("config")
+end
+
 local plugins = {
     -- core
     "folke/lazy.nvim",
@@ -85,6 +89,9 @@ local plugins = {
     "folke/which-key.nvim",
     "echasnovski/mini.nvim",
     {"silentz/nvim.nocopy-paste", lazy = false, },
+
+    -- local plugins
+    { dir = string.format("%s/cmp_go_imports", get_config_directory()), lazy = false, }
 }
 
 require("lazy").setup(plugins, opts)
