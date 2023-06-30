@@ -61,6 +61,7 @@ local function lsp_keymaps(bufnr)
     local keymap = vim.api.nvim_buf_set_keymap
     keymap(bufnr, "n", "<C-s>", "<cmd>lua _SILENTZ_SIGNATURE_HELP()<cr>", opts)
     keymap(bufnr, "i", "<C-s>", "<cmd>lua _SILENTZ_SIGNATURE_HELP()<cr>", opts)
+    keymap(bufnr, "i", "<C-x>", "<cmd>lua vim.lsp.buf.completion()<cr>", opts)
     keymap(bufnr, "n", "<C-e>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
 
