@@ -29,6 +29,19 @@ source.get_keyword_pattern = function(self, params)
   return NAME_REGEX .. '*'
 end
 
+local function _dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 source.complete = function(self, params, callback)
   local option = self:_validate_option(params)
 
@@ -40,10 +53,8 @@ source.complete = function(self, params, callback)
   local include_hidden = string.sub(params.context.cursor_before_line, params.offset, params.offset) == '.'
   self:_candidates(dirname, include_hidden, option, function(err, candidates)
     if err then
-      print(err)
       return callback()
     end
-    print(candidates)
     callback(candidates)
   end)
 end
