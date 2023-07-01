@@ -22,7 +22,7 @@ source.new = function()
 end
 
 source.get_trigger_characters = function()
-  return { '/', '.' }
+  return { '/' }
 end
 
 source.get_keyword_pattern = function(self, params)
@@ -40,8 +40,10 @@ source.complete = function(self, params, callback)
   local include_hidden = string.sub(params.context.cursor_before_line, params.offset, params.offset) == '.'
   self:_candidates(dirname, include_hidden, option, function(err, candidates)
     if err then
+      print(err)
       return callback()
     end
+    print(candidates)
     callback(candidates)
   end)
 end

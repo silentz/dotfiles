@@ -1,1 +1,1 @@
-require('cmp').register_source('path', require('cmp_go_imports').new())
+require('cmp').register_source('go_imports', require('cmp_go_imports').new())

@@ -103,6 +103,7 @@ cmp.setup {
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                go_imports = "[Import]",
             })[entry.source.name]
             return vim_item
         end,
@@ -113,6 +114,7 @@ cmp.setup {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "go_imports" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
