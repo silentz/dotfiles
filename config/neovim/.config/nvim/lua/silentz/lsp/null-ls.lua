@@ -10,7 +10,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 
 null_ls.setup({
-    debug = false,
+    debug = true,
     sources = {
         -- formatting.prettier,
         formatting.isort,
@@ -24,7 +24,15 @@ null_ls.setup({
         formatting.google_java_format,
         formatting.dart_format,
         formatting.clang_format.with({
-            extra_args = { "-style", "{IndentWidth: 4, ColumnLimit: 300}" },
+            extra_args = {
+                "--style",
+                "{"..
+                    "IndentWidth: 4, " ..
+                    "ColumnLimit: 300, "..
+                    "AllowShortFunctionsOnASingleLine: Empty, "..
+                    "AllowShortBlocksOnASingleLine: Always, "..
+                "}",
+            },
         }),
         null_ls.builtins.code_actions.gitsigns,
     },
