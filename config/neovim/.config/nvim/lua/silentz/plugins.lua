@@ -91,7 +91,7 @@ local plugins = {
     {"silentz/nvim.nocopy-paste", lazy = false, },
 
     -- local plugins
-    { dir = string.format("%s/cmp_go_imports", get_config_directory()), lazy = false, }
+    -- { dir = string.format("%s/cmp_go_imports", get_config_directory()), lazy = false, }
 }
 
 require("lazy").setup(plugins, opts)
