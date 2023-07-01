@@ -6,57 +6,57 @@ local PATH_REGEX = vim.regex(([[\%(\%(/PAT*[^/\\\\:\\*?<>\'"`\\| .~]\)\|\%(/\.\.
 local source = {}
 
 local constants = {
-  max_lines = 20,
+    max_lines = 20,
 }
 
 local defaults = {
-  trailing_slash = false,
-  label_trailing_slash = true,
-  get_cwd = function(params)
-    return vim.fn.expand(('#%d:p:h'):format(params.context.bufnr))
-  end,
+    trailing_slash = false,
+    label_trailing_slash = true,
+    get_cwd = function(params)
+        return vim.fn.expand(('#%d:p:h'):format(params.context.bufnr))
+    end,
 }
 
 source.new = function()
-  return setmetatable({}, { __index = source })
+    return setmetatable({}, { __index = source })
 end
 
 source.get_trigger_characters = function()
-  return { '/' }
+    return { '/' }
 end
 
 source.get_keyword_pattern = function(self, params)
-  return NAME_REGEX .. '*'
+    return NAME_REGEX .. '*'
 end
 
 local function _dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. _dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
+    if type(o) == 'table' then
+        local s = '{ '
+        for k,v in pairs(o) do
+            if type(k) ~= 'number' then k = '"'..k..'"' end
+            s = s .. '['..k..'] = ' .. _dump(v) .. ','
+        end
+        return s .. '} '
+    else
+        return tostring(o)
+    end
 end
 
 source.complete = function(self, params, callback)
-  local option = self:_validate_option(params)
+    local option = self:_validate_option(params)
 
-  local dirname = self:_dirname(params, option)
-  if not dirname then
-    return callback()
-  end
-
-  local include_hidden = string.sub(params.context.cursor_before_line, params.offset, params.offset) == '.'
-  self:_candidates(dirname, include_hidden, option, function(err, candidates)
-    if err then
-      return callback()
+    local dirname = self:_dirname(params, option)
+    if not dirname then
+        return callback()
     end
-    callback(candidates)
-  end)
+
+    local include_hidden = string.sub(params.context.cursor_before_line, params.offset, params.offset) == '.'
+    self:_candidates(dirname, include_hidden, option, function(err, candidates)
+        if err then
+            return callback()
+        end
+        callback(candidates)
+    end)
 end
 
 source.resolve = function(self, completion_item, callback)
@@ -78,29 +78,46 @@ source._dirname = function(self, params, option)
     return nil
   end
 
-  local dirname = string.gsub(string.sub(params.context.cursor_before_line, s + 2), '%a*$', '') -- exclude '/'
-  local prefix = string.sub(params.context.cursor_before_line, 1, s + 1) -- include '/'
+  -- `dirname` is path without '/' in the beggining
+  local dirname = string.gsub(string.sub(params.context.cursor_before_line, s + 2), '%a*$', '')
+  -- `prefix` is path with `/` in the beggining
+  local prefix = string.sub(params.context.cursor_before_line, 1, s + 1)
+
+  print("_dirname:dirname:", _dump(dirname))
+  print("_dirname:prefix:", _dump(prefix))
 
   local buf_dirname = option.get_cwd(params)
+  print(buf_dirname, vim.fn.getcwd())
+
+  -- some fix for command line mode?
+  -- guess it is not needed for golang imports
+  -- TODO: remove
   if vim.api.nvim_get_mode().mode == 'c' then
     buf_dirname = vim.fn.getcwd()
   end
+
   if prefix:match('%.%./$') then
     return vim.fn.resolve(buf_dirname .. '/../' .. dirname)
   end
+
   if (prefix:match('%./$') or prefix:match('"$') or prefix:match('\'$')) then
     return vim.fn.resolve(buf_dirname .. '/' .. dirname)
   end
+
   if prefix:match('~/$') then
     return vim.fn.resolve(vim.fn.expand('~') .. '/' .. dirname)
   end
+
   local env_var_name = prefix:match('%$([%a_]+)/$')
+
   if env_var_name then
     local env_var_value = vim.fn.getenv(env_var_name)
     if env_var_value ~= vim.NIL then
       return vim.fn.resolve(env_var_value .. '/' .. dirname)
     end
   end
+
+  -- path validity checks checks
   if prefix:match('/$') then
     local accept = true
     -- Ignore URL components
@@ -117,6 +134,7 @@ source._dirname = function(self, params, option)
       return vim.fn.resolve('/' .. dirname)
     end
   end
+
   return nil
 end
 
