@@ -18,13 +18,13 @@ local servers = {
     -- "lua-language-server",
 
     -- HTML/CSS/SCSS
-    "html-lsp",
-    "css-lsp",
+    "html",
+    "cssls",
 
     -- JavaScript/Vue
-    "typescript-language-server",
-    "vue-language-server",
-    "svelte-language-server",
+    "tsserver",
+    "svelte",
+    "volar",
 
     -- Latex
     "ltex",
