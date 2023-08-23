@@ -1,4 +1,3 @@
-
 # setup vte
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
