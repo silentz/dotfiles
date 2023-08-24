@@ -31,11 +31,11 @@ colors:
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
     matches:
-      foreground: '#000000'
-      background: '#e9ff5e'
+      foreground: '#0A0E14'
+      background: '#FFEE99'
     focused_match:
-      foreground: '#e9ff5e'
-      background: '#000000'
+      foreground: '#0A0E14'
+      background: '#d09050'
 
   # Keyboard hints
   hints:
