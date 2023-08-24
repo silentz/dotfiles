@@ -5,8 +5,11 @@ font pango:Hack Nerd Font 10
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# i3 tiling mode
+# i3 tiling mode (default | stacking | tabbed)
 workspace_layout default
+
+# default orientation for tiling mode (horizontal|vertical|auto)
+default_orientation vertical
 
 # Set inner/outer gaps
 gaps inner 8
