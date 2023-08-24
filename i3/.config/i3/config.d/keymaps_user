@@ -1,2 +1,11 @@
-# start a terminal
+# change keyboard layout
+bindsym Alt+Space exec --no-startup-id xkb-switch -n
+
+# start terminal
 bindsym $mod+Return exec --no-startup-id alacritty
+
+# start browser
+bindsym $mod+b exec --no-startup-id chromium
+
+# start file manager
+bindsym $mod+n exec --no-startup-id alacritty -e ranger
