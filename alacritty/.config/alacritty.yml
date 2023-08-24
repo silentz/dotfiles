@@ -34,4 +34,3 @@ import:
   - ~/.config/alacritty-config/selection.yaml
   - ~/.config/alacritty-config/shell.yaml
   - ~/.config/alacritty-config/window.yaml
-  - ~/.config/alacritty-themes/custom/monokai_dark.yaml
