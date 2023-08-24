@@ -11,6 +11,29 @@ workspace_layout default
 # default orientation for tiling mode (horizontal|vertical|auto)
 default_orientation vertical
 
-# Set inner/outer gaps
+# border settings
+default_border normal
+default_floating_border normal
+
+# title alignment
+title_align left
+
+# set inner/outer gaps
 gaps inner 8
 gaps outer 0
+
+# define color vars
+set $bg-color          #505050
+set $inactive-bg-color #2a2a2a
+set $urgent-bg-color   #a03000
+set $indicator-color   #909090
+
+set $text-color          #f3f4f5
+set $inactive-text-color #676e7d
+
+# define colors for windows
+# <colorclass>          <border>           <background>       <text>               <indicator>         <child_border>
+client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $text-color          $inactive-bg-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $urgent-bg-color
