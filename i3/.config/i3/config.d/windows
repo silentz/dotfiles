@@ -1,2 +1,5 @@
+# border for all windows
+for_window [class="^.*"] border normal 2
+
 # alacritty
 for_window [class="Alacritty"] border pixel 2
