@@ -2,6 +2,7 @@
 
 stow -t $HOME bash
 stow -t $HOME alacritty
+stow -t $HOME nvim
 stow -t $HOME gitui
 
 stow -t $HOME fonts
