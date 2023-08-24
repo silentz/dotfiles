@@ -1,0 +1,2 @@
+# start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty

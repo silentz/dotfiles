@@ -1,0 +1,19 @@
+# set `mod` key to Win key
+set $mod Mod4
+
+# set workspaces vars
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# include all subconfigs
+include ~/.config/i3/config.d/font
+include ~/.config/i3/config.d/keymaps_i3
+include ~/.config/i3/config.d/keymaps_user
