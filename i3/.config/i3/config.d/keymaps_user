@@ -9,3 +9,6 @@ bindsym $mod+b exec --no-startup-id chromium
 
 # start file manager
 bindsym $mod+n exec --no-startup-id alacritty -e ranger
+
+# lock screen
+bindsym $mod+l exec --no-startup-id i3lock -e -c 202020
