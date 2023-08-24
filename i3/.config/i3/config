@@ -16,5 +16,6 @@ set $ws10 "10"
 # include all subconfigs
 include ~/.config/i3/config.d/autostart
 include ~/.config/i3/config.d/interface
+include ~/.config/i3/config.d/windows
 include ~/.config/i3/config.d/keymaps_i3
 include ~/.config/i3/config.d/keymaps_user
