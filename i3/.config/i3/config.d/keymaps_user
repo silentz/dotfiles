@@ -1,5 +1,5 @@
 # change keyboard layout
-bindsym Alt+Space exec --no-startup-id xkb-switch -n
+bindsym Mod1+Space exec --no-startup-id xkb-switch -n
 
 # start terminal
 bindsym $mod+Return exec --no-startup-id alacritty
