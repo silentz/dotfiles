@@ -1,0 +1,13 @@
+# i3 has support for both X core fonts and
+# FreeType fonts (through Pango) to render window titles
+font pango:Hack Nerd Font 10
+
+# use mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# i3 tiling mode
+workspace_layout default
+
+# Set inner/outer gaps
+gaps inner 8
+gaps outer 0
