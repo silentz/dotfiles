@@ -32,9 +32,9 @@ colors:
     # affected cell, or hexadecimal colors like #ff00ff.
     matches:
       foreground: '#000000'
-      background: '#ffffff'
+      background: '#e9ff5e'
     focused_match:
-      foreground: '#ffffff'
+      foreground: '#e9ff5e'
       background: '#000000'
 
   # Keyboard hints
