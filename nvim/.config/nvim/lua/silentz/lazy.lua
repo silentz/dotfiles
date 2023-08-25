@@ -256,7 +256,7 @@ local options = {
         -- automatically check for plugin updates
         enabled = false,
 
-         ---@type number? set to 1 to check for updates very slowly
+        ---@type number? set to 1 to check for updates very slowly
         concurrency = nil,
 
         -- get a notification when new updates are found
