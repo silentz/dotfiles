@@ -1,2 +1,5 @@
 # fix screen resolution
 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080
+
+# polybar
+exec --no-startup-id polybar
