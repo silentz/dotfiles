@@ -47,4 +47,24 @@ return function()
     function _GITUI_TOGGLE()
         gitui:toggle()
     end
+
+    local gitdiff = terminal.Terminal:new({
+        cmd = "git diff --color=always | less -r -c",
+        hidden = true,
+        on_open = function(term)
+            local keymaps = myrequire(".keymaps.gitdiff")
+            keymaps(term.bufnr)
+        end,
+        on_close = function(term)
+            local skip_func_name = debug.getinfo(3).name
+            if skip_func_name == "shutdown" then
+                return
+            end
+            term:shutdown()
+        end,
+    })
+
+    function _GITDIFF_TOGGLE()
+        gitdiff:toggle()
+    end
 end
