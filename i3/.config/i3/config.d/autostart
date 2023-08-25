@@ -6,3 +6,6 @@ exec --no-startup-id polybar
 
 # add natural scrolling for touchpad
 exec --no-startup-id ~/.config/i3/config.d/scripts/touchpad.sh
+
+# set key repeat rate and delay
+exec --no-startup-id ~/.config/i3/config.d/scripts/touchpad.sh
