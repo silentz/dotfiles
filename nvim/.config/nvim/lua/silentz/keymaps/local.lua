@@ -42,9 +42,11 @@ map("n", "<C-Right>", "<C-w>l")
 -- map("n", "<S-Right>",   ":vertical resize +2<CR>")
 
 -- Navigate buffers
-map("n", "<C-PageDown>", ":BufferLineCycleNext<CR>")
-map("n", "<C-PageUp>",   ":BufferLineCyclePrev<CR>")
-map("n", "<C-w>",        ":lua require('mini.bufremove').delete(0, false)<CR>")
+map("n", "<C-PageDown>",   ":BufferLineCycleNext<CR>")
+map("n", "<C-PageUp>",     ":BufferLineCyclePrev<CR>")
+map("n", "<C-S-PageDown>", ":BufferLineMoveNext<CR>")
+map("n", "<C-S-PageUp>",   ":BufferLineMovePrev<CR>")
+map("n", "<C-w>",          ":lua require('mini.bufremove').delete(0, false)<CR>")
 
 -- Return from jump
 -- map("n", "<S-Tab>", "<C-o>")
