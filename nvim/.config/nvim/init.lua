@@ -19,7 +19,7 @@ end
 
 -- list of custom modules to load
 
-modules = {
+local modules = {
     ".lazy",
     ".options",
     ".keymaps.local",
@@ -28,7 +28,7 @@ modules = {
 }
 
 for _, module in ipairs(modules) do
-    status, err = pcall(myrequire, module)
+    local status, err = pcall(myrequire, module)
     if not status then
         print("Failed to load custom module " .. module .. ": " .. err)
     end
