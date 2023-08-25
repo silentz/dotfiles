@@ -22,6 +22,7 @@ return function(bufnr)
 			x = { "<cmd>Telescope lsp_references       initial_mode=normal<cr>", "LSP References" },
 			l = { "<cmd>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", "LSP Diagnostic" },
             r = { "<cmd>lua require('renamer').rename()<cr>", "LSP Rename" },
+            f = { "<cmd>lua vim.lsp.buf.format()<cr>", "LSP Format" },
 		},
 
 		["<C-s>"] = { "<cmd>lua _SIGNATURE_HELP()<cr>", "LSP Signature Help" },

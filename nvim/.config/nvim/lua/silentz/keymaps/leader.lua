@@ -104,7 +104,7 @@ local mappings = {
 		},
 
         -- change code
-		f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
 		r = { "<cmd>lua require('renamer').rename()<cr>", "Rename" },
 
         -- diagnistics
