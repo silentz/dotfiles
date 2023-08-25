@@ -128,11 +128,6 @@ local plugins = {
         },
     },
     {
-        -- Add/change/delete surrounding delimiter pairs
-        "kylechui/nvim-surround",
-        config = myrequire(".plugins.nvim_surround"),
-    },
-    {
         -- Autopairs for neovim
         "windwp/nvim-autopairs",
         config = myrequire(".plugins.nvim_autopairs"),
