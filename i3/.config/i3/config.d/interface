@@ -9,7 +9,7 @@ floating_modifier $mod
 workspace_layout default
 
 # default orientation for tiling mode (horizontal|vertical|auto)
-default_orientation vertical
+default_orientation horizontal
 
 # border settings
 default_border normal
