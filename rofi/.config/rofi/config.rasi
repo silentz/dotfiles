@@ -1,0 +1,34 @@
+configuration {
+    modes: "window,drun,run,ssh";
+    disable-history: true;
+
+    /* window settings */
+    font: "Roboto Mono Nerd Font 12";
+    show-icons: true;
+    icon-theme: "Papirus";
+    display-drun: "";
+    click-to-exit: true;
+
+    /* window position */
+    location: 0;
+    yoffset: 0;
+    xoffset: 0;
+
+    /* cmd execution settings */
+    terminal: "alacritty";
+    run-command: "{cmd}";
+    run-list-command: "";
+    run-shell-command: "{terminal} -e {cmd}";
+
+    /* ssh settings */
+    ssh-client: "ssh";
+    ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
+
+    /* drun settings */
+    drun-match-fields: "name,generic,exec,categories,keywords";
+    drun-show-actions: false;
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    drun-url-launcher: "xdg-open";
+    drun-use-desktop-cache: false;
+    drun-reload-desktop-cache: false;
+}
