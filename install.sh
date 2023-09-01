@@ -1,6 +1,7 @@
 #/bin/bash
 
 stow -t $HOME i3
+stow -t $HOME rofi
 stow -t $HOME polybar
 stow -t $HOME bash
 stow -t $HOME alacritty
