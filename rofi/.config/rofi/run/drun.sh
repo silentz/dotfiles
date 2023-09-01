@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rofi -show drun -theme ~/.config/rofi/main/style.rasi
+rofi -show drun -theme ~/.config/rofi/main/default.rasi
