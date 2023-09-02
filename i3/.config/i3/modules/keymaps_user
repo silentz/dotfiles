@@ -12,3 +12,8 @@ bindsym $mod+n exec --no-startup-id alacritty -e ranger
 
 # lock screen
 bindsym $mod+l exec --no-startup-id ~/.config/i3/modules/scripts/lock.sh
+
+# sound prefs
+bindsym XF86AudioMute        exec --no-startup-id amixer -q -D pulse sset Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
