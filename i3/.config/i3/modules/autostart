@@ -5,7 +5,7 @@ exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080
 exec --no-startup-id polybar
 
 # add natural scrolling for touchpad
-exec --no-startup-id ~/.config/i3/config.d/scripts/touchpad.sh
+exec --no-startup-id ~/.config/i3/modules/scripts/touchpad.sh
 
 # set key repeat rate and delay
-exec --no-startup-id ~/.config/i3/config.d/scripts/touchpad.sh
+exec --no-startup-id ~/.config/i3/modules/scripts/touchpad.sh
