@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Theme Elements
-list_col='1'
-list_row='6'
-
 # Options
 option_1=" Lock"
 option_2=" Logout"
@@ -16,12 +12,8 @@ no=' No'
 
 # Rofi CMD
 rofi_cmd() {
-	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
-		-dmenu \
-		-p "power menu" \
-		-markup-rows \
-		-theme ~/.config/rofi/powermenu.rasi
+	rofi -dmenu \
+		 -theme ~/.config/rofi/powermenu.rasi
 }
 
 # Pass variables to rofi dmenu
@@ -32,14 +24,14 @@ run_rofi() {
 # Confirmation CMD
 confirm_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
-		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 1;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
-		-p 'Confirmation' \
-		-mesg 'Are you Sure?' \
-		-theme ${theme}
+	     -theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+		 -theme-str 'listview {columns: 2; lines: 1;}' \
+		 -theme-str 'element-text {horizontal-align: 0.5;}' \
+		 -theme-str 'textbox {horizontal-align: 0.5;}' \
+		 -dmenu \
+		 -p 'Confirmation' \
+		 -mesg 'Are you Sure?' \
+		 -theme ~/.config/rofi/powermenu.rasi
 }
 
 # Ask for confirmation
@@ -60,7 +52,7 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		betterlockscreen -l
+		~/.config/i3/lock.sh
 	elif [[ "$1" == '--opt2' ]]; then
 		confirm_run 'kill -9 -1'
 	elif [[ "$1" == '--opt3' ]]; then
