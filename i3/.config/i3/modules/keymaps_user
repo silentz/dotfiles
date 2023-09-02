@@ -11,4 +11,4 @@ bindsym $mod+b exec --no-startup-id chromium
 bindsym $mod+n exec --no-startup-id alacritty -e ranger
 
 # lock screen
-bindsym $mod+l exec --no-startup-id i3lock -e -c 202020
+bindsym $mod+l exec --no-startup-id ~/.config/i3/modules/scripts/lock.sh
