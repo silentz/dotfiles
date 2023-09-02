@@ -1,5 +1,5 @@
 # change keyboard layout
-bindsym Mod1+Space exec --no-startup-id xkb-switch -n
+bindsym Mod1+space exec --no-startup-id ~/.config/i3/modules/scripts/xkb_switch.sh
 
 # start terminal
 bindsym $mod+Return exec --no-startup-id alacritty
