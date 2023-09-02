@@ -1,0 +1,54 @@
+# polybar
+
+background = $BG
+foreground = $FG
+sep = $SEP
+
+# rofi
+
+* {
+    al:   #00000000;
+    bg:   ${BG}FF;
+    bga:  ${BGA}FF;
+    fg:   ${FG}FF;
+    ac:   ${AC}FF;
+    se:   ${SE}FF;
+}
+
+# themes
+
+[[ default ]]
+	BG="#212B30"
+	FG="#C4C7C5"
+	BGA="#263035"
+	SEP="#3F5360"
+	AC="#EC407A"
+	SE="#4DD0E1"
+[[ nord ]]
+	BG="#3B4252"
+	FG="#E5E9F0"
+	BGA="#454C5C"
+	SEP="#5B6579"
+	AC="#BF616A"
+	SE="#88C0D0"
+[[ gruvbox ]]
+	BG="#282828"
+	FG="#EBDBB2"
+	BGA="#313131"
+	SEP="#505050"
+	AC="#FB4934"
+	SE="#8EC07C"
+[[ dark ]]
+	BG="#141C21"
+	FG="#93A1A1"
+	BGA="#1E262B"
+	SEP="#3C4449"
+	AC="#D12F2C"
+	SE="#33C5BA"
+[[ cherry ]]
+	BG="#1F1626"
+	FG="#FFFFFF"
+	BGA="#292030"
+	SEP="#473F4E"
+	AC="#D94084"
+	SE="#4F5D95"
