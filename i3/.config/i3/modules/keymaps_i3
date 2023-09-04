@@ -76,13 +76,4 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+w reload
 
 # exit mode
-mode "exit: [l]ogout, s[u]spend, [h]ibernate, [r]eboot, [s]hutdown" {
-    bindsym l exec i3-msg exit
-    bindsym u exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec systemctl reboot
-    bindsym s exec systemctl poweroff
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
-bindsym $mod+Shift+e mode "exit: [l]ogout, s[u]spend, [h]ibernate, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/run/powermenu.sh
