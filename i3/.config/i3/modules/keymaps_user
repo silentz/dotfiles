@@ -23,3 +23,7 @@ bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86Favorites         exec --no-startup-id ~/.config/i3/modules/scripts/redshift_on.sh
 bindsym Shift+XF86Favorites   exec --no-startup-id ~/.config/i3/modules/scripts/redshift_off.sh
+
+# screenshots
+bindsym $mod+Print          exec --no-startup-id flameshot gui
+bindsym Shift+Control+Print exec --no-startup-id flameshot gui --clipboard
