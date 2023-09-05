@@ -1,6 +1,6 @@
 # i3 has support for both X core fonts and
 # FreeType fonts (through Pango) to render window titles
-font pango:Hack Nerd Font 10
+font pango:Ubuntu Nerd Font 11
 
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
