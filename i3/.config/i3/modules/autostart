@@ -9,3 +9,6 @@ exec --no-startup-id ~/.config/i3/modules/scripts/touchpad.sh
 
 # set key repeat rate and delay
 exec --no-startup-id ~/.config/i3/modules/scripts/keyboard.sh
+
+# set wallpapers
+exec --no-startup-id feh --bg-fill ~/images/forest_02.jpg
