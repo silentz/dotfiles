@@ -90,7 +90,7 @@ max_icon_size = 128                 # Scale larger icons down to this size (0 to
 
 enable_recursive_icon_lookup = true # recursive icon lookup
 
-icon_theme = Papyrus                # icon theme (only for recursive icon lookup). can be set
+icon_theme = Papirus                # icon theme (only for recursive icon lookup). can be set
                                     # multiple themes using icon_theme = "first, second" syntax
 
 
