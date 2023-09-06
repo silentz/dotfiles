@@ -16,7 +16,7 @@ follow = none               # values: [none/mouse/keyboard] where notifications
 width = 300                 # width of notification message
 height = 300                # max height of single notification
 origin = top-right          # position of notifications on the screen
-offset = 10x50              # offset from origin
+offset = 8x50              # offset from origin
 scale = 0                   # scale factor, 0 means autodetect
 corner_radius = 0           # border radius of the notification window
 transparency = 0            # transparency of window [0; 100]
@@ -132,3 +132,24 @@ ignore_dbusclose = false
 mouse_left_click = close_current
 mouse_middle_click = do_action, close_current
 mouse_right_click = close_all
+
+# ============== [colors] ===============
+
+[urgency_low]
+    background = "#202020"
+    foreground = "#888888"
+    timeout = 10
+    #default_icon = /path/to/icon
+
+[urgency_normal]
+    background = "#202020"
+    foreground = "#e0e0e0"
+    timeout = 10
+    #default_icon = /path/to/icon
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
+    #default_icon = /path/to/icon
