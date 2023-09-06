@@ -5,6 +5,8 @@
 monitor =  0                # which monitor should the notifications be displayed on
 notification_limit = 10     # maximum shown notifications
 indicate_hidden = yes       # show how many messages are hidden (because of notification_limit)
+sort = yes                  # sort messages by urgency
+idle_threshold = 120        # don't remove messages, if no mouse/keyboard input for N seconds (0 to disable)
 
 follow = none               # values: [none/mouse/keyboard] where notifications
                             # should be placed in a multi-monitor setup
@@ -16,7 +18,7 @@ height = 300                # max height of single notification
 origin = top-right          # position of notifications on the screen
 offset = 10x50              # offset from origin
 scale = 0                   # scale factor, 0 means autodetect
-sort = yes                  # sort messages by urgency
+corner_radius = 0           # border radius of the notification window
 transparency = 0            # transparency of window [0; 100]
 separator_height = 2        # draw a line of N pixel height between two notifications (0 to disable)
 padding = 8                 # padding between text and separator
@@ -24,7 +26,6 @@ horizontal_padding = 8      # horizontal padding
 text_icon_padding = 0       # padding between text and icon
 frame_width = 3             # padding between text and icon (0 to disable)
 frame_color = "#aaaaaa"     # color of the frame around the notification window
-idle_threshold = 120        # don't remove messages, if no mouse/keyboard input (0 to disable)
 
 gap_size = 0                # size of gap to display between notifications - requires a compositor
                             # if value is greater than 0, separator_height will be ignored and a border
@@ -80,3 +81,54 @@ markup = full                   # possible values are:
                                 # * strip: This setting is provided for compatibility with some
                                 #          broken clients that send markup even though it's not enabled on the
                                 # * no: Disable markup parsing, incoming text are treated as plain text.
+
+# ============== [icon options] ===============
+
+icon_position = left                # align icons (left, right, top, off)
+min_icon_size = 32                  # scale small icons up to this size (0 to disable)
+max_icon_size = 128                 # Scale larger icons down to this size (0 to disable)
+
+enable_recursive_icon_lookup = true # recursive icon lookup
+
+icon_theme = Papyrus                # icon theme (only for recursive icon lookup). can be set
+                                    # multiple themes using icon_theme = "first, second" syntax
+
+
+# ============== [history] ===============
+
+sticky_history = yes # should a notification popped up from history be sticky or
+                     # timeout as if it would normally do.
+
+history_length = 20  # maximum amount of notifications kept in history
+
+# ============== [misc] ===============
+
+browser = /usr/bin/xdg-open # tool for opening urls in context menu
+always_run_script = true    # always run rule-defined scripts, even if the notification is suppressed
+title = dunst               # define the title of the windows spawned by dunst
+class = dunst               # define the class of the windows spawned by dunst
+
+# Ignore the dbus closeNotification message.
+# Useful to enforce the timeout set by dunst configuration. Without this
+# parameter, an application may close the notification sent before the
+# user defined timeout
+ignore_dbusclose = false
+
+# ============== [mouse] ===============
+
+# Defines list of actions for each mouse event
+# Possible values are:
+# * none: Don't do anything.
+# * do_action: Invoke the action determined by the action_name rule. If there is no
+#              such action, open the context menu.
+# * open_url: If the notification has exactly one url, open it. If there are multiple
+#             ones, open the context menu.
+# * close_current: Close current notification.
+# * close_all: Close all notifications.
+# * context: Open context menu for the notification.
+# * context_all: Open context menu for all notifications.
+# These values can be strung together for each mouse event, and
+# will be executed in sequence.
+mouse_left_click = close_current
+mouse_middle_click = do_action, close_current
+mouse_right_click = close_all
