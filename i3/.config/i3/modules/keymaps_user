@@ -20,6 +20,7 @@ bindsym $mod+l exec --no-startup-id ~/.config/i3/modules/scripts/lock.sh
 bindsym XF86AudioMute        exec --no-startup-id amixer -q -D pulse sset Master toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
+bindsym XF86AudioMicMute     exec --no-startup-id amixer -q -D pulse sset Capture toggle
 
 # brightness and redshift
 bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5
