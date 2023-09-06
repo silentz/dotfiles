@@ -17,3 +17,6 @@ exec --no-startup-id feh --bg-fill ~/images/forest_02.jpg
 exec --no-startup-id ~/.config/i3/modules/scripts/dpms.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- \
                      ~/.config/i3/modules/scripts/lock.sh
+
+# launch dunst
+exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
