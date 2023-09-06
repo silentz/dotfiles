@@ -27,8 +27,8 @@ gaps outer 0
 
 # define color vars
 set $bg-color          #202020
-set $focused-color     #909090
-set $unfocused-color   #202020
+set $focused-color     #707070
+set $unfocused-color   #404040
 set $urgent-bg-color   #a03000
 set $text-color        #d0d0d0
 
