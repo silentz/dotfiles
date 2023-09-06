@@ -2,6 +2,3 @@
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="System-config-printer.py"] floating enable
-
-# alacritty
-for_window [class="Alacritty"] border pixel 2
