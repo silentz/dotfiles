@@ -1,0 +1,44 @@
+[global]
+
+# ============== [general] ===============
+
+monitor =  0                # which monitor should the notifications be displayed on
+follow = none               # values: [none/mouse/keyboard] where notifications
+                            # should be placed in a multi-monitor setup
+notification_limit = 10     # maximum shown notifications
+indicate_hidden = yes       # show how many messages are hidden (because of notification_limit)
+
+# ============== [window] ===============
+
+width = 300                 # width of notification message
+height = 300                # max height of single notification
+origin = top-right          # position of notifications on the screen
+offset = 10x50              # offset from origin
+scale = 0                   # scale factor, 0 means autodetect
+sort = yes                  # sort messages by urgency
+transparency = 0            # transparency of window [0; 100]
+separator_height = 2        # draw a line of N pixel height between two notifications (0 to disable)
+padding = 8                 # padding between text and separator
+horizontal_padding = 8      # horizontal padding
+text_icon_padding = 0       # padding between text and icon
+frame_width = 3             # padding between text and icon (0 to disable)
+frame_color = "#aaaaaa"     # color of the frame around the notification window
+idle_threshold = 120        # don't remove messages, if no mouse/keyboard input (0 to disable)
+gap_size = 0                # size of gap to display between notifications - requires a compositor
+                            # if value is greater than 0, separator_height will be ignored and a border
+                            # of size frame_width will be drawn around each notification instead
+separator_color = frame     # color for the separator, possible values:
+                            #  * auto: dunst tries to find a color fitting to the background;
+                            #  * foreground: use the same color as the foreground;
+                            #  * frame: use the same color as the frame;
+                            #  * anything else will be interpreted as a X color
+
+# ============== [progress bar] ===============
+
+progress_bar = true             # turn on the progess bar (example: dunstify -h int:value:12)
+progress_bar_height = 10        # progress bar frame height
+progress_bar_frame_width = 1    # progress bar frame width
+progress_bar_min_width = 150    # progress bar minimum width
+progress_bar_max_width = 300    # progress bar maximum width
+progress_bar_corner_radius = 0  # border radius for the progress bar
+icon_corner_radius = 0          # icon image border radius
