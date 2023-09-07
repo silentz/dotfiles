@@ -19,12 +19,13 @@ vim.opt.rtp:prepend(lazypath)
 -- list of plugins with their options
 
 local plugins = {
+    -- Colorschemes
     {
-        -- Colorscheme setup
         "Shatur/neovim-ayu",
         priority = 1000,
-        config = myrequire(".plugins.colorscheme"),
     },
+    -- Plugins
+    {
     {
         -- Bottom ststus line
         "nvim-lualine/lualine.nvim",
