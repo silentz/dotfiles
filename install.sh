@@ -1,6 +1,7 @@
 #/bin/bash
 
 stow -t $HOME gtk
+stow -t $HOME bin
 stow -t $HOME i3
 stow -t $HOME dunst
 stow -t $HOME rofi
