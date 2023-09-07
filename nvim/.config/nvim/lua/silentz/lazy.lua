@@ -30,6 +30,11 @@ local plugins = {
         priority = 1000,
         config = myrequire(".colorschemes.gruvbox"),
     },
+    {
+        "rebelot/kanagawa.nvim",
+        priority = 1000,
+        config = myrequire(".colorschemes.kanagawa"),
+    },
     -- Plugins
     {
         -- Bottom ststus line
