@@ -20,8 +20,8 @@ end
 -- list of custom modules to load
 
 local modules = {
-    ".lazy",
     ".options",
+    ".lazy",
     ".keymaps.local",
     ".keymaps.leader",
     ".ide.start",
@@ -33,3 +33,7 @@ for _, module in ipairs(modules) do
         print("Failed to load custom module " .. module .. ": " .. err)
     end
 end
+
+-- setup colorscheme
+
+vim.cmd("colorscheme ayu")

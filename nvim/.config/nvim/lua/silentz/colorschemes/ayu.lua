@@ -1,11 +1,11 @@
 return function()
-    local status_ok, ayu = pcall(require, "ayu")
+    local status_ok, colorscheme = pcall(require, "ayu")
     if not status_ok then
-        print("ERROR", ayu)
+        print("ERROR", colorscheme)
         return
     end
 
-    ayu.setup({
+    colorscheme.setup({
         mirage = false,
         overrides = {},
     })
