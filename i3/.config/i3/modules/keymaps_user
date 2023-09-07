@@ -11,7 +11,8 @@ bindsym $mod+backslash exec --no-startup-id ~/.config/i3/modules/scripts/floatte
 bindsym $mod+b exec --no-startup-id chromium
 
 # start file manager
-bindsym $mod+n exec --no-startup-id thunar
+# bindsym $mod+n exec --no-startup-id thunar
+bindsym $mod+n exec --no-startup-id alacritty -e ranger
 
 # lock screen
 bindsym $mod+l exec --no-startup-id ~/.config/i3/modules/scripts/lock.sh
