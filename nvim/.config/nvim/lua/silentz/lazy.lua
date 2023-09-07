@@ -23,9 +23,14 @@ local plugins = {
     {
         "Shatur/neovim-ayu",
         priority = 1000,
+        config = myrequire(".colorschemes.ayu"),
+    },
+    {
+        "luisiacc/gruvbox-baby",
+        priority = 1000,
+        config = myrequire(".colorschemes.gruvbox"),
     },
     -- Plugins
-    {
     {
         -- Bottom ststus line
         "nvim-lualine/lualine.nvim",

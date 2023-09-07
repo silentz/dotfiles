@@ -24,7 +24,6 @@ local modules = {
     ".options",
     ".keymaps.local",
     ".keymaps.leader",
-    ".colorschemes.ayu",
     ".ide.start",
 }
 
