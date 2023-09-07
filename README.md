@@ -2,21 +2,19 @@
 
 ## Setup
 
-1. Install GNU Stow
+1. Install GNU Stow on your Linux distro
 ```
 pacman -S stow
 apt install stow
 ...
 ```
 
-2. Go to config dir of the repo:
+2. Clone repository to home dir:
 ```
-cd config
+git clone https://github.com/silentz/dotfiles.git
 ```
 
-3. Stow required configuration:
+3. Install configuration:
 ```
-stow -t $HOME neovim
-stow -t $HOME fonts
-...
+./install.sh
 ```
