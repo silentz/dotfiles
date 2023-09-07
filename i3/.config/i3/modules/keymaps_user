@@ -28,6 +28,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86Favorites         exec --no-startup-id ~/.config/i3/modules/scripts/redshift_on.sh
 bindsym Shift+XF86Favorites   exec --no-startup-id ~/.config/i3/modules/scripts/redshift_off.sh
 
+# keyboard backlight
+# it's hardware hotkey on lenovo x1 thinkpad series
+# uncomment if does not work on another laptop
+# bindsym Control+space exec --no-startup-id ~/.config/i3/modules/scripts/keyboard_backlight.sh
+
 # screenshots
 bindsym $mod+Print          exec --no-startup-id flameshot gui
 bindsym Shift+Control+Print exec --no-startup-id flameshot gui --clipboard
