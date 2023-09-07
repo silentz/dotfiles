@@ -21,7 +21,7 @@ local function shift_tab_func(fallback)
 end
 
 return {
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
     ["<Tab>"]   = cmp.mapping(tab_func,       { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(shift_tab_func, { "i", "s" }),
