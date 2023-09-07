@@ -41,6 +41,8 @@ pathadd() {
 pathadd "$HOME/bin"
 pathadd "$HOME/script"
 
+pathadd "$HOME/flutter/bin"
+
 # ========= [aliases] ==========
 
 alias ls='ls --color=auto'
