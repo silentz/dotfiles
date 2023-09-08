@@ -59,7 +59,7 @@ icon_corner_radius = 0          # icon image border radius
 #   %n  progress value if set without any extra characters
 #   %%  Literal %
 # Markup is allowed
-format = "<b>%a</b>\n%s"
+format = "<b>%a</b> <i>%s</i>\n%b"
 
 font = Ubuntu Nerd Font 10      # font used to render messages
 alignment = left                # horizontal alignment (left, center, right)
@@ -69,7 +69,7 @@ ellipsize = end                 # where to make an ellipsis in long lines (start
 ignore_newline = no             # ignore newlines '\n' in notifications
 stack_duplicates = true         # stack together notifications with the same content
 hide_duplicate_count = false    # hide the count of stacked notifications with the same content
-show_indicators = yes           # display indicators for URLs (U) and actions (A).
+show_indicators = no            # display indicators for URLs (U) and actions (A).
 
 line_height = 0                 # spacing between lines. if this height is smaller than the
                                 # font height, it will get raised to the font height
@@ -86,7 +86,7 @@ markup = full                   # possible values are:
 
 icon_position = left                # align icons (left, right, top, off)
 min_icon_size = 32                  # scale small icons up to this size (0 to disable)
-max_icon_size = 128                 # Scale larger icons down to this size (0 to disable)
+max_icon_size = 40                  # scale larger icons down to this size (0 to disable)
 
 enable_recursive_icon_lookup = true # recursive icon lookup
 
@@ -153,3 +153,41 @@ mouse_right_click = close_all
     frame_color = "#ff0000"
     timeout = 0
     #default_icon = /path/to/icon
+
+# ============== [app-specific] ===============
+
+# Messages can be matched by
+#    appname (discouraged, see desktop_entry)
+#    body
+#    category
+#    desktop_entry
+#    icon
+#    match_transient
+#    msg_urgency
+#    stack_tag
+#    summary
+#
+# Overridable options
+#    background
+#    foreground
+#    format
+#    frame_color
+#    fullscreen
+#    new_icon
+#    set_stack_tag
+#    set_transient
+#    set_category
+#    timeout
+#    urgency
+#    icon_position
+#    skip_display
+#    history_ignore
+#    action_name
+#    word_wrap
+#    ellipsize
+#    alignment
+#    hide_text
+
+[slack]
+    appname = Slack
+    new_icon = slack
