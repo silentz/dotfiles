@@ -86,7 +86,7 @@ markup = full                   # possible values are:
 
 icon_position = left                # align icons (left, right, top, off)
 min_icon_size = 32                  # scale small icons up to this size (0 to disable)
-max_icon_size = 40                  # scale larger icons down to this size (0 to disable)
+max_icon_size = 32                  # scale larger icons down to this size (0 to disable)
 
 enable_recursive_icon_lookup = true # recursive icon lookup
 
@@ -191,3 +191,7 @@ mouse_right_click = close_all
 [slack]
     appname = Slack
     new_icon = slack
+
+[telegram]
+    appname = Telegram Desktop
+    format = "<b>Telegram</b> <i>%s</i>\n%b"
