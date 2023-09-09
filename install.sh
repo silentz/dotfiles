@@ -3,6 +3,7 @@
 stow -t $HOME gtk
 stow -t $HOME script
 stow -t $HOME i3
+stow -t $HOME picom
 stow -t $HOME dunst
 stow -t $HOME rofi
 stow -t $HOME polybar
