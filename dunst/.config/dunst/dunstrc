@@ -16,18 +16,18 @@ follow = none               # values: [none/mouse/keyboard] where notifications
 width = 300                 # width of notification message
 height = 300                # max height of single notification
 origin = top-right          # position of notifications on the screen
-offset = 4x34               # offset from origin
+offset = 8x38               # offset from origin
 scale = 0                   # scale factor, 0 means autodetect
-corner_radius = 0           # border radius of the notification window
+corner_radius = 10          # border radius of the notification window
 transparency = 0            # transparency of window [0; 100]
 separator_height = 1        # draw a line of N pixel height between two notifications (0 to disable)
 padding = 8                 # padding between text and separator
 horizontal_padding = 8      # horizontal padding
 text_icon_padding = 0       # padding between text and icon
-frame_width = 2             # padding between text and icon (0 to disable)
-frame_color = "#5050a0"     # color of the frame around the notification windowa
+frame_width = 1             # padding between text and icon (0 to disable)
+frame_color = "#a0a0a0"     # color of the frame around the notification windowa
 
-gap_size = 0                # size of gap to display between notifications - requires a compositor
+gap_size = 8                # size of gap to display between notifications - requires a compositor
                             # if value is greater than 0, separator_height will be ignored and a border
                             # of size frame_width will be drawn around each notification instead
 
