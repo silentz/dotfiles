@@ -83,7 +83,7 @@ local mappings = {
 
     g = {
         name = "Git",
-        g = { "<cmd>lua _GITUI_TOGGLE()<cr>", "GitUI" },
+        g = { "<cmd>lua _GIT_WINDOW_TOGGLE()<cr>", "GitUI" },
         d = { "<cmd>lua _GITDIFF_TOGGLE()<cr>", "Git diff" },
         s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
