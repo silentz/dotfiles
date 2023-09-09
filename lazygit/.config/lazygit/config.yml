@@ -1,4 +1,13 @@
 
+confirmOnQuit: false
+quitOnTopLevelReturn: true   # determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
+disableStartupPopups: true
+notARepository: 'prompt'     # one of: 'prompt' | 'create' | 'skip' | 'quit'
+
+# display confirmation when subprocess terminates
+promptToReturnFromSubprocess: true
+
+
 gui:
   language: "en"                    # one of (auto, en, zh-CN, zh-TW, pl, nl, ja, ko, ru)
   timeFormat: "02 Jan 2006"         # https://pkg.go.dev/time#Time.Format
@@ -38,7 +47,7 @@ gui:
 
   theme:
     activeBorderColor:
-      - "#C2D94C"
+      - "#ffffff"
       - bold
     inactiveBorderColor:
       - "#B3B1AD"
@@ -236,56 +245,55 @@ keybinding:
     bulkMenu: 'b'
 
 
+os:
+  editPreset: 'nvim'
+
+
+refresher:
+  refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
+  fetchInterval: 60   # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
+
+
+update:
+  method: never # can be: prompt | background | never
+  days: 14      # how often an update is checked for
+
+
 git:
+  mainBranches: [master, main]
+  autoRefresh: true
+  autoFetch: false
+
+  # Pass --all flag when running git fetch. Set to false to fetch only
+  # origin (or the current branch's upstream remote if there is one)
+  fetchAll: true
+
+  commit:
+    signOff: false
+
   paging:
     colorArg: always
     useConfig: false
-  commit:
-    signOff: false
+
   merging:
-    # only applicable to unix users
-    manualCommit: false
-    # extra args passed to `git merge`, e.g. --no-ff
-    args: ''
+    manualCommit: false   # only applicable to unix users
+    args: ''              # extra args passed to `git merge`, e.g. --no-ff
+
   log:
     # one of date-order, author-date-order, topo-order or default.
     # topo-order makes it easier to read the git log graph, but commits may not
     # appear chronologically. See https://git-scm.com/docs/git-log#_commit_ordering
-    order: 'topo-order'
+    order: 'date-order'
     # one of always, never, when-maximised
     # this determines whether the git graph is rendered in the commits panel
-    showGraph: 'when-maximised'
+    showGraph: 'always'
     # displays the whole git graph by default in the commits panel (equivalent to passing the `--all` argument to `git log`)
     showWholeGraph: false
+
+  parseEmoji: false
   skipHookPrefix: WIP
-  # The main branches. We colour commits green if they belong to one of these branches,
-  # so that you can easily see which commits are unique to your branch (coloured in yellow)
-  mainBranches: [master, main]
-  autoFetch: true
-  autoRefresh: true
-  fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
-  branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
-  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
   disableForcePushing: false
-  parseEmoji: false
-os:
-  copyToClipboardCmd: '' # See 'Custom Command for Copying to Clipboard' section
-  editPreset: '' # see 'Configuring File Editing' section
-  edit: ''
-  editAtLine: ''
-  editAtLineAndWait: ''
-  open: ''
-  openLink: ''
-refresher:
-  refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
-  fetchInterval: 60 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
-update:
-  method: prompt # can be: prompt | background | never
-  days: 14 # how often an update is checked for
-confirmOnQuit: false
-# determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
-quitOnTopLevelReturn: false
-disableStartupPopups: false
-notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip' | 'quit'
-promptToReturnFromSubprocess: true # display confirmation when subprocess terminates
+
+  branchLogCmd:      'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
+  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
