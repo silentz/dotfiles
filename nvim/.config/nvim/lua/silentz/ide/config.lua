@@ -65,7 +65,7 @@ function _ide_entity_closed(args)
 
     -- check flag and close window
     if close_flag then
-        vim.cmd("qall")
+        vim.cmd("qall!")
     end
 end
 
