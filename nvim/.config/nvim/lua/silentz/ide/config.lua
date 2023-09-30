@@ -212,6 +212,8 @@ function initial_setup()
     -- always setup TermClose handler
     -- it prevents closing neovim after closing terminal buffer
     vim.cmd([[ autocmd TermClose * lua _process_term_close() ]])
+    vim.cmd([[ autocmd TermOpen * startinsert]])
+    vim.cmd([[ autocmd TermOpen * set nonumber norelativenumber]])
 
     -- check ide mode
     if _ide_mode == "none" then
