@@ -188,6 +188,22 @@ function _ide_protect_windows(args)
     end
 end
 
+function _process_term_close()
+    -- Solution from:
+    -- https://neovim.discourse.group/t/stop-terminal-buffer-from-auto-closing-window/3849
+    local buf = vim.api.nvim_get_current_buf()
+    local newbuf = vim.api.nvim_create_buf(false, true)
+    local windows = vim.fn.getwininfo()
+
+    for _, i in ipairs(windows) do
+        if i.bufnr == buf then
+            vim.api.nvim_win_set_buf(i.winid, newbuf)
+        end
+    end
+
+    vim.api.nvim_buf_delete(buf, {})
+end
+
 -- This function with probability 99.99% will open
 -- an empty symbols panel, because at that moment LSP
 -- client will not be attached. This is why we also
@@ -195,6 +211,10 @@ end
 function initial_setup()
     -- set ide mode flag
     _ide_mode = "partial"
+
+    -- always setup TermClose handler
+    -- it prevents closing neovim after closing terminal buffer
+    vim.cmd([[ autocmd TermClose * lua _process_term_close() ]])
 
     -- check ide mode
     if _ide_mode == "none" then
