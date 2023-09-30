@@ -1,9 +1,9 @@
-local _ide_mode = false
+local _ide_mode = "none" -- [none, partial, full]
 
 local function verify_and_run(callback)
     local width = vim.api.nvim_win_get_width(0)
     local height = vim.api.nvim_win_get_height(0)
-    local min_code = 60
+    local min_code = 120
 
     if width >= min_code then
         callback()
@@ -16,7 +16,7 @@ function on_lsp_attach(lsp_bufnr)
     -- P.S if many buffers are opened quickly, we cannot
     -- guess which LSP client will load faster, that is
     -- why we need to match buffers before updating document_symbols
-    if _ide_mode then
+    if _ide_mode == "full" then
         if vim.fn.bufnr('%') == lsp_bufnr then
             verify_and_run(
                 function()
@@ -194,7 +194,12 @@ end
 -- need to call function above in lspconfig's `on_attach`.
 function initial_setup()
     -- set ide mode flag
-    _ide_mode = true
+    _ide_mode = "partial"
+
+    -- check ide mode
+    if _ide_mode == "none" then
+        return
+    end
 
     -- register callback on window/tab/buffer close
     -- this will help correctly close all windows if
