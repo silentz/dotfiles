@@ -1,5 +1,13 @@
 local _ide_mode = "none" -- [none, partial, full]
 
+local SPECIAL_FILETYPES = {
+     -- `true` means close, anything else means keep
+    ["neo-tree"] = true,
+    ["Outline"] = true,
+    ["neotest-summary"] = true,
+    ["cmp_menu"] = true,
+}
+
 local function verify_and_run(callback)
     local width = vim.api.nvim_win_get_width(0)
     local height = vim.api.nvim_win_get_height(0)
@@ -28,14 +36,6 @@ function on_lsp_attach(lsp_bufnr)
 end
 
 function _ide_entity_closed(args)
-    local win_types = {
-        -- `true` means close, anything else means keep
-        ["neo-tree"] = true,
-        ["Outline"] = true,
-        ["neotest-summary"] = true,
-        ["cmp_menu"] = true,
-    }
-
     -- fetch currently open windows
     local open_wins = vim.api.nvim_list_wins()
 
@@ -58,7 +58,7 @@ function _ide_entity_closed(args)
         -- convert win_id to string, becuase <amatch>, if exists, will be a string
         local str_win_id = tostring(win_id)
 
-        if str_win_id ~= closed_win and win_types[filetype] == nil then
+        if str_win_id ~= closed_win and SPECIAL_FILETYPES[filetype] == nil then
             close_flag = false
         end
     end
@@ -135,12 +135,10 @@ end
 
 function _ide_protect_windows(args)
     -- buffer types to protect
-    local protected_types_list = {
-        "neo-tree",
-        "Outline",
-        "neotest-summary",
-        "cmp_menu",
-    }
+    local protected_types_list = {}
+    for k, _ in pairs(SPECIAL_FILETYPES) do
+        table.insert(protected_types_list, k)
+    end
 
     -- utility function
     local function make_set(arr)
@@ -189,19 +187,18 @@ function _ide_protect_windows(args)
 end
 
 function _process_term_close()
-    -- Solution from:
-    -- https://neovim.discourse.group/t/stop-terminal-buffer-from-auto-closing-window/3849
-    local buf = vim.api.nvim_get_current_buf()
-    local newbuf = vim.api.nvim_create_buf(false, true)
-    local windows = vim.fn.getwininfo()
+    local cur_buf = vim.api.nvim_get_current_buf()
+    local new_buf = vim.api.nvim_create_buf(true, false)
+    local open_wins = vim.api.nvim_list_wins()
 
-    for _, i in ipairs(windows) do
-        if i.bufnr == buf then
-            vim.api.nvim_win_set_buf(i.winid, newbuf)
+    for _, win_id in ipairs(open_wins) do
+        local bufnr = vim.api.nvim_win_get_buf(win_id)
+        if bufnr == cur_buf then
+            vim.api.nvim_win_set_buf(win_id, new_buf)
         end
     end
 
-    vim.api.nvim_buf_delete(buf, {})
+    vim.api.nvim_buf_delete(cur_buf, {})
 end
 
 -- This function with probability 99.99% will open
