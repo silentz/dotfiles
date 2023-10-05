@@ -188,7 +188,7 @@ end
 
 function _process_term_close()
     local cur_buf = vim.api.nvim_get_current_buf()
-    local new_buf = vim.api.nvim_create_buf(true, false)
+    local new_buf = vim.api.nvim_create_buf(false, false)
     local open_wins = vim.api.nvim_list_wins()
 
     for _, win_id in ipairs(open_wins) do
