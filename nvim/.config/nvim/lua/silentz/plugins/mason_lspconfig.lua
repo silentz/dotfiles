@@ -6,8 +6,8 @@ local function findidx(table, value)
     end
 end
 
-local ignored_servers = {
-    "dartls",
+local manually_installed = {
+    dartls = true,
 }
 
 return function()
@@ -18,12 +18,16 @@ return function()
     end
 
     local servers = myrequire(".plugins.shared.lsp_servers")
-    for _, iserver in ipairs(ignored_servers) do
-        table.remove(servers, findidx(servers, iserver))
+    local servers_filtered = {}
+
+    for _, iserver in ipairs(servers) do
+        if manually_installed[iserver] == nil then
+            table.insert(servers_filtered, iserver)
+        end
     end
 
     mason_lsp.setup({
-        ensure_installed = servers,
+        ensure_installed = servers_filtered,
         automatic_installation = true,
     })
 end
