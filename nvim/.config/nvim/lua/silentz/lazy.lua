@@ -72,6 +72,7 @@ local plugins = {
         -- Provide a simple and easy way to use the interface for tree-sitter in
         -- Neovim and to provide some basic functionality such as highlighting based on it
         "nvim-treesitter/nvim-treesitter",
+        commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
         build = ":TSUpdate",
         event = { "BufReadPost", "BufNewFile" },
         config = myrequire(".plugins.treesitter"),
