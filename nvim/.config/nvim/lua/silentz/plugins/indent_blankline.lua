@@ -10,7 +10,6 @@ return function()
         debounce = 200,
         indent = {
             char = "▏",
-            tab_char = { "a", "b", "c" },
             smart_indent_cap = true,
             priority = 1,
         },
