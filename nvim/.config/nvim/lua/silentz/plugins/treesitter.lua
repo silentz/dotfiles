@@ -40,7 +40,7 @@ local parsers = {
     "json",
     "todotxt",
     "vim",
-    "yaml",
+    -- "yaml",
 }
 
 return function()
