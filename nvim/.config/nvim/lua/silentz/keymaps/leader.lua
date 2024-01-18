@@ -84,9 +84,10 @@ local mappings = {
     g = {
         name = "Git",
         g = { "<cmd>lua _GIT_WINDOW_TOGGLE()<cr>", "UI Client" },
-        -- s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        -- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        -- c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+
+        S = { "<cmd>Telescope git_status<cr>", "Git Status [T]" },
+        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch [T]" },
+        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit [T]" },
 
         ["["] = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		["]"] = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
