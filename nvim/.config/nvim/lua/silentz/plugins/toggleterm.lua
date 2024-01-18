@@ -36,7 +36,7 @@ return function()
     vim.cmd('autocmd! TermOpen term://*')
 
     local gitterm = terminal.Terminal:new({
-        cmd = "lazygit",
+        cmd = "gitui",
         hidden = true,
         on_open = function(term)
             local keymaps = myrequire(".keymaps.git")
