@@ -12,9 +12,6 @@ return function()
         debug = false,
 
         sources = {
-            formatting.isort,
-            formatting.black,
-
             formatting.stylua,
             formatting.gofmt,
             formatting.dart_format,
