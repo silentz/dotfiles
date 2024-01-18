@@ -1,12 +1,13 @@
 return {
     -- Python
-    "pyright",
+    "pylsp",
 
     -- Golang
     "gopls",
 
-    -- C/C++/Cuda
+    -- C/C++/Cuda/ASM
     "clangd",
+    "asm_lsp",
 
     -- Dart
     "dartls",
