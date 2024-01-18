@@ -2,10 +2,6 @@ local function local_on_attach(client, bufnr)
     -- add lsp keymaps
     local lspkeymaps = myrequire(".keymaps.lsp")
     lspkeymaps(bufnr)
-
-    -- update symbols panel with lsp info
-    local ide = myrequire(".ide.config")
-    ide.on_lsp_attach(bufnr)
 end
 
 local function setup_diagnostics()
