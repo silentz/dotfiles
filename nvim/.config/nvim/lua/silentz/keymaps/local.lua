@@ -88,6 +88,3 @@ map("t", "<C-Right>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Neotree
 map("n", "<C-n>", "<cmd>Neotree toggle<cr>")
-
--- Symbols outline
-map("n", "<C-m>", "<cmd>SymbolsOutline<cr>")
