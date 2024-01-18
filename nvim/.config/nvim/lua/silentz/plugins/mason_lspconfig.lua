@@ -30,4 +30,14 @@ return function()
         ensure_installed = servers_filtered,
         automatic_installation = true,
     })
+
+    -- install pylsp deps
+    local isort_path = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv/bin/isort"
+    local black_path = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv/bin/black"
+    local is_isort_installed = vim.fn.filereadable(isort_path)
+    local is_black_installed = vim.fn.filereadable(black_path)
+
+    if not is_black_installed or not is_isort_installed then
+        vim.cmd("PylspInstall python-lsp-black pyls-isort")
+    end
 end
