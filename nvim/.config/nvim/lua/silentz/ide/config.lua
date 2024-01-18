@@ -1,7 +1,7 @@
 local _ide_mode = "none" -- [none, partial, full]
 
 local SPECIAL_FILETYPES = {
-     -- `true` means close, anything else means keep
+    -- `true` means close, anything else means keep
     ["neo-tree"] = true,
     ["neotest-summary"] = true,
     ["cmp_menu"] = true,
@@ -142,17 +142,17 @@ function initial_setup()
         return
     end
 
+    -- capture all buffer openings, because I want to protect
+    -- some windows (like Symbols and Tests) from changing buffers
+    -- inside them
+    vim.cmd([[ autocmd BufAdd * lua _ide_protect_windows({type="bufadd"}) ]])
+
     -- register callback on window/tab/buffer close
     -- this will help correctly close all windows if
     -- code editing is finished (all files are closed)
     vim.cmd([[ autocmd BufDelete * lua _ide_entity_closed({type="buf"}) ]])
     vim.cmd([[ autocmd TabClosed * lua _ide_entity_closed({type="tab"}) ]])
     vim.cmd([[ autocmd WinClosed * lua _ide_entity_closed({type="win"}) ]])
-
-    -- capture all buffer openings, because I want to protect
-    -- some windows (like Symbols and Tests) from changing buffers
-    -- inside them
-    vim.cmd([[ autocmd BufAdd * lua _ide_protect_windows({type="bufadd"}) ]])
 
     -- call only if window is wide enough
     verify_and_run(
