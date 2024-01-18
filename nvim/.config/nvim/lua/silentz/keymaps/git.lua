@@ -3,5 +3,5 @@ return function(bufnr)
     local keymap = vim.api.nvim_buf_set_keymap
     keymap(bufnr, "t", [[<c-\>]], "<cmd>close<CR>", opts)
     -- breaks inner window escape keymaps, so do not use it
-    keymap(bufnr, "t", "<esc>", "<cmd>close<CR>", opts)
+    -- keymap(bufnr, "t", "<esc>", "<cmd>close<CR>", opts)
 end
