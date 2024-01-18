@@ -20,12 +20,6 @@ return function()
                     separator = true,
                 },
                 {
-                    filetype = "Outline",
-                    text = "Symbols",
-                    text_align = "center",
-                    separator = true,
-                },
-                {
                     filetype = "neotest-summary",
                     text = "Tests",
                     text_align = "center",
