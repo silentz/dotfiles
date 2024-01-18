@@ -17,6 +17,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- list of plugins with their options
+-- NOTE: vim.fn.stdpath("config") returns ~/.config/nvim/
+-- NOTE: vim.fn.stdpath("state") returns ~/.cache/nvim/
+-- NOTE: vim.fn.stdpath("data") returns ~/.local/share/nvim/
 
 local plugins = {
     -- Colorschemes
@@ -143,11 +146,6 @@ local plugins = {
         -- Autopairs for neovim
         "windwp/nvim-autopairs",
         config = myrequire(".plugins.nvim_autopairs"),
-    },
-    {
-        -- A tree like view for symbols in Neovim using LSP
-        dir = vim.fn.stdpath("config") .. "/patched/symbols-outline.nvim",
-        config = myrequire(".plugins.symbols_outline"),
     },
     {
         -- Git signs
