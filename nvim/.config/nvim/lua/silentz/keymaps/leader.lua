@@ -83,11 +83,21 @@ local mappings = {
 
     g = {
         name = "Git",
-        g = { "<cmd>lua _GIT_WINDOW_TOGGLE()<cr>", "GitUI" },
-        d = { "<cmd>lua _GITDIFF_TOGGLE()<cr>", "Git diff" },
-        s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+        g = { "<cmd>lua _GIT_WINDOW_TOGGLE()<cr>", "UI Client" },
+        -- s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+        -- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+        -- c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+
+        ["["] = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+		["]"] = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+
+		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
+
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     },
 
     l = {
