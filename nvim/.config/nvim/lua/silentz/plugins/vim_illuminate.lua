@@ -21,7 +21,6 @@ return function()
         -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
         filetypes_denylist = {
             "neo-tree",
-            "Outline",
             "toggleterm",
             "TelescopePrompt",
             "lazy",

@@ -28,7 +28,6 @@ return function()
                 "man",
                 "help",
                 "lazy",
-                "Outline",
                 "lspinfo",
                 "neo-tree",
             },
