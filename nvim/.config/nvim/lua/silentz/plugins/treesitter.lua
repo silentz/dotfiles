@@ -40,6 +40,8 @@ local parsers = {
     "json",
     "todotxt",
     "vim",
+
+    -- DO NOT UNCOMMENT: does not work with jinja in yaml
     -- "yaml",
 }
 
