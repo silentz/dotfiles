@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
+import os
+import readline
+import signal
 from typing import Dict, List, Set, Union
 
 import psutil
+
+NVIM_PROC_NAME = "nvim"
 
 
 class Process:
@@ -28,7 +33,7 @@ def get_system_procs() -> List[Process]:
         result.append(
             Process(
                 pid=proc.pid,
-                cmd=proc.cmdline(),
+                cmd=" ".join(proc.cmdline()),
                 ppid=proc.ppid(),
                 name=proc.name(),
                 children=list(),
@@ -42,7 +47,7 @@ def filter_nvim_procs(processes: List[Process]) -> List[Process]:
     result = []
 
     for proc in processes:
-        if proc.name == "nvim":
+        if proc.name == NVIM_PROC_NAME:
             result.append(proc)
 
     return result
@@ -66,10 +71,58 @@ def make_pid_graph(processes: List[Process]) -> Dict[int, Set[int]]:
     return result
 
 
+def get_proc_children(proc_graph: Dict[int, Set[int]], pid: int) -> Set[int]:
+    result: Set[int] = set()
+
+    for child_proc in proc_graph[pid]:
+        result.add(child_proc)
+        child_proc_children = get_proc_children(proc_graph, child_proc)
+        result = result.union(child_proc_children)
+
+    return result
+
+
 if __name__ == "__main__":
     system_procs = get_system_procs()
+    pid_to_proc = {x.pid: x for x in system_procs}
+
     proc_graph = make_pid_graph(system_procs)
     nvim_procs = filter_nvim_procs(system_procs)
 
-    print(nvim_procs)
-    print(proc_graph)
+    if len(nvim_procs) <= 0:
+        print("No nvim processes found")
+        exit(0)
+
+    print("Running processes:")
+    for idx, nvim_proc in enumerate(nvim_procs):
+        nvim_proc_idx = "  {}.".format(idx + 1)
+        nvim_proc_pid = "[pid: {}]".format(nvim_proc.pid)
+        print(nvim_proc_idx, nvim_proc_pid, nvim_proc.cmd)
+
+    selected = False
+    nvim_proc_id = None
+
+    while not selected:
+        input_msg = "Select process to rescue [{}-{}]: ".format(1, len(nvim_procs))
+        nvim_proc_id = input(input_msg)
+
+        try:
+            nvim_proc_id = int(nvim_proc_id)
+            selected = True
+        except:
+            print("Invalid input")
+
+    selected_nvim_proc = nvim_procs[nvim_proc_id]
+    proc_children = get_proc_children(proc_graph, selected_nvim_proc.pid)
+
+    for child_proc_id in proc_children:
+        child_proc = pid_to_proc[child_proc_id]
+
+        if child_proc.name == NVIM_PROC_NAME:
+            continue
+
+        child_proc_pid = "[pid: {}]".format(child_proc.pid)
+        print("Stopping process:", child_proc_pid, child_proc.cmd)
+        os.kill(child_proc.pid, signal.SIGKILL)
+
+    print("Done!")
