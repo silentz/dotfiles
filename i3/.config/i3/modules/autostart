@@ -8,7 +8,7 @@ exec --no-startup-id setxkbmap -layout us,ru -option grp:alt_space_toggle
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # polybar
-exec --no-startup-id polybar
+exec --no-startup-id ~/.config/i3/modules/scripts/polybar.sh
 
 # add natural scrolling for touchpad
 exec --no-startup-id ~/.config/i3/modules/scripts/touchpad.sh
