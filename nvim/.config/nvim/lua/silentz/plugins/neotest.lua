@@ -10,8 +10,8 @@ return function()
             virtual_text = true,
         },
         output = {
-            open_on_run  = true,
-            auto_close = true,
+            open_on_run = true,
+            auto_close  = true,
         },
         adapters = {
             require("neotest-go"),
@@ -27,10 +27,6 @@ return function()
         },
         consumers = {
             silentz = myrequire(".my_consumer"),
-        },
-        summary = {
-            -- function from ide.lua to configure window position
-            open = "lua _ide_open_unittest_window()",
         },
     })
 end
