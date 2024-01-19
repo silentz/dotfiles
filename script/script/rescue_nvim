@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+
+from typing import Dict, List, Set, Union
+
+import psutil
+
+
+class Process:
+    def __init__(
+        self,
+        pid: int,
+        ppid: Union[int, None],
+        name: str,
+        cmd: str,
+        children: List["Process"],
+    ):
+        self.pid = pid
+        self.cmd = cmd
+        self.ppid = ppid
+        self.name = name
+        self.children = children
+
+
+def get_system_procs() -> List[Process]:
+    result = []
+
+    for proc in psutil.process_iter():
+        result.append(
+            Process(
+                pid=proc.pid,
+                cmd=proc.cmdline(),
+                ppid=proc.ppid(),
+                name=proc.name(),
+                children=list(),
+            )
+        )
+
+    return result
+
+
+def filter_nvim_procs(processes: List[Process]) -> List[Process]:
+    result = []
+
+    for proc in processes:
+        if proc.name == "nvim":
+            result.append(proc)
+
+    return result
+
+
+def make_pid_graph(processes: List[Process]) -> Dict[int, Set[int]]:
+    result: Dict[int, Set[int]] = dict()
+
+    for proc in processes:
+        if proc.pid not in result:
+            result[proc.pid] = set()
+
+        if proc.ppid is not None:
+            if proc.ppid not in result:
+                result[proc.ppid] = set()
+
+    for proc in processes:
+        if proc.ppid is not None:
+            result[proc.ppid].add(proc.pid)
+
+    return result
+
+
+if __name__ == "__main__":
+    system_procs = get_system_procs()
+    proc_graph = make_pid_graph(system_procs)
+    nvim_procs = filter_nvim_procs(system_procs)
+
+    print(nvim_procs)
+    print(proc_graph)
