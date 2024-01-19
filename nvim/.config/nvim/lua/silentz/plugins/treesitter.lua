@@ -64,10 +64,6 @@ return function()
         indent = {
             enable = true,
         },
-        context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-        },
         matchup = {
             enable = true,
         },
@@ -100,4 +96,12 @@ return function()
             },
         },
     })
+
+    local status_ok, tcc = pcall(require, "ts_context_commentstring")
+    if not status_ok then
+        print("ERROR", tcc)
+        return
+    end
+
+    tcc.setup{}
 end
