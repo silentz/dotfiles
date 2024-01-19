@@ -8,14 +8,14 @@ primary=$(xrandr --query | grep primary | cut -d" " -f1)
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -x polybar >/dev/null; do sleep 0.1; done
+while pgrep -u $UID -x polybar >/dev/null; do sleep 0.1; done
 
 # launch polybar on all screens
 for monitor in $screens; do
     if [[ "$monitor" == "$primary" ]]; then
-        MONITOR="$monitor" polybar main &
+        MONITOR="$monitor" polybar -q main &
     else
         # I also want to launch the same bar on second screen
-        MONITOR="$monitor" polybar main &
+        MONITOR="$monitor" polybar -q main &
     fi
 done
