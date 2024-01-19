@@ -26,7 +26,7 @@ return function()
             }),
         },
         consumers = {
-            silentz = myrequire(".my_consumer"),
+            silentz = myrequire(".flat_run_consumer"),
         },
     })
 end
