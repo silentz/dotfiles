@@ -95,5 +95,5 @@ bindsym $mod+u exec --no-startup-id ~/.config/rofi/run/window.sh
 # MULTIMONITOR
 
 # move between monitors
-bindsym $mod+Shift+greater move container to output right
-bindsym $mod+Shift+less move container to output left
+bindsym $mod+Shift+p move container to output next
+bindsym $mod+Shift+o move workspace to output next
