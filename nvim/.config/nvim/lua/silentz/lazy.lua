@@ -218,6 +218,10 @@ local plugins = {
         config = myrequire(".plugins.markdown_preview"),
     },
     {
+        "monaqa/dial.nvim",
+        config = myrequire(".plugins.dial"),
+    },
+    {
         dir = vim.fn.stdpath("config") .. "/untrusted/trailing-whitespace",
         config = myrequire(".plugins.trailing_whitespace"),
     },
