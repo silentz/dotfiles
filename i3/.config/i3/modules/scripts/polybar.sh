@@ -1,14 +1,16 @@
 #!/bin/bash
 
+# fetch all screens and primary one
+screens=$(xrandr --listactivemonitors | grep -v "Monitors" | cut -d" " -f6)
+primary=$(xrandr --query | grep primary | cut -d" " -f1)
+
 # Terminate already running bar instances
 killall -q polybar
 
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 0.1; done
 
-screens=$(xrandr --listactivemonitors | grep -v "Monitors" | cut -d" " -f6)
-primary=$(xrandr --query | grep primary | cut -d" " -f1)
-
+# launch polybar on all screens
 for monitor in $screens; do
     if [[ "$monitor" == "$primary" ]]; then
         MONITOR="$monitor" polybar main &
