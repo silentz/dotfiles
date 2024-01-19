@@ -171,7 +171,7 @@ local plugins = {
     {
         -- Multipurpouse lib, but I use mainly for comments
         "echasnovski/mini.nvim",
-        config = myrequire(".plugins.mini_comments"),
+        config = myrequire(".plugins.mini"),
     },
     {
         -- Keymap binding tool with helper popups
@@ -220,10 +220,6 @@ local plugins = {
     {
         "monaqa/dial.nvim",
         config = myrequire(".plugins.dial"),
-    },
-    {
-        dir = vim.fn.stdpath("config") .. "/untrusted/trailing-whitespace",
-        config = myrequire(".plugins.trailing_whitespace"),
     },
     {
         dir = vim.fn.stdpath("config") .. "/untrusted/renamer.nvim",
