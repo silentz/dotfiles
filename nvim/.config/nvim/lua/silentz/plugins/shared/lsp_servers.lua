@@ -25,4 +25,7 @@ return {
 
     -- Latex
     "texlab",
+
+    -- Ansible
+    "ansiblels",
 }
