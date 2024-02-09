@@ -1,0 +1,37 @@
+# Live config reload (changes require restart)
+live_config_reload = true
+
+
+# Startup directory
+# Directory the shell is started in. If this is unset, or `None`, the working
+# directory of the parent process will be used.
+working_directory = None
+
+
+# Offer IPC using `alacritty msg` (unix only)
+ipc_socket = true
+
+
+# Import additional configuration files
+#
+# Imports are loaded in order, skipping all missing files, with the importing
+# file being loaded last. If a field is already present in a previous import, it
+# will be replaced.
+#
+# All imports must either be absolute paths starting with `/`, or paths relative
+# to the user's home directory starting with `~/`.
+import = [
+  "~/.config/alacritty-config/bell.toml",
+  "~/.config/alacritty-config/colors.toml",
+  "~/.config/alacritty-config/cursor.toml",
+  "~/.config/alacritty-config/debug.toml",
+  "~/.config/alacritty-config/env.toml",
+  "~/.config/alacritty-config/font.toml",
+  "~/.config/alacritty-config/hints.toml",
+  "~/.config/alacritty-config/keymaps.toml",
+  "~/.config/alacritty-config/mouse.toml",
+  "~/.config/alacritty-config/scrolling.toml",
+  "~/.config/alacritty-config/selection.toml",
+  "~/.config/alacritty-config/shell.toml",
+  "~/.config/alacritty-config/window.toml",
+]
