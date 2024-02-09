@@ -1,0 +1,5 @@
+[bell]
+animation = "EaseOutExpo"
+color = "#ffffff"
+command = "None"
+duration = 0

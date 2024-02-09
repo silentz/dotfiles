@@ -1,0 +1,10 @@
+[cursor]
+blink_interval = 500
+blink_timeout = 0
+thickness = 0.1
+unfocused_hollow = true
+vi_mode_style = "None"
+
+[cursor.style]
+blinking = "Never"
+shape = "Block"

@@ -1,0 +1,21 @@
+[window]
+decorations = "full"
+decorations_theme_variant = "None"
+dynamic_title = true
+opacity = 1.0
+option_as_alt = "None"
+resize_increments = false
+startup_mode = "Windowed"
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 0
+y = 0
