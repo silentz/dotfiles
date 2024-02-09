@@ -7,6 +7,11 @@ action = "Copy"
 key = "Copy"
 
 [[keyboard.bindings]]
+chars = "\u001F"
+key = "Slash"
+mods = "Control"
+
+[[keyboard.bindings]]
 action = "ClearLogNotice"
 key = "L"
 mods = "Control"
