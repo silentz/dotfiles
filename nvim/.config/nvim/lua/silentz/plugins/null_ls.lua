@@ -14,7 +14,7 @@ return function()
         sources = {
             formatting.stylua,
             formatting.gofmt,
-            formatting.dart_format,
+            -- formatting.dart_format,
 
             formatting.ktlint,
             formatting.google_java_format,
@@ -23,11 +23,11 @@ return function()
             formatting.clang_format.with({
                 extra_args = {
                     "--style",
-                    "{"..
-                        "IndentWidth: 4, " ..
-                        "ColumnLimit: 300, "..
-                        "AllowShortFunctionsOnASingleLine: Empty, "..
-                        "AllowShortBlocksOnASingleLine: Always, "..
+                    "{" ..
+                    "IndentWidth: 4, " ..
+                    "ColumnLimit: 300, " ..
+                    "AllowShortFunctionsOnASingleLine: Empty, " ..
+                    "AllowShortBlocksOnASingleLine: Always, " ..
                     "}",
                 },
             }),
@@ -42,7 +42,7 @@ return function()
                     group = augroup,
                     buffer = bufnr,
                     callback = function()
-                        vim.lsp.buf.format({bufnr=bufnr})
+                        vim.lsp.buf.format({ bufnr = bufnr })
                     end,
                 })
             end
