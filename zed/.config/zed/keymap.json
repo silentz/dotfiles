@@ -10,7 +10,23 @@
             "ctrl-t": "workspace::NewFile",
             "ctrl-w": "pane::CloseActiveItem",
             "ctrl-s": "editor::ShowCompletions",
-            "ctrl-;": null
+            "ctrl-;": null,
+            "shift-g shift-g": "editor::OpenExcerpts"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "g x": "editor::FindAllReferences"
+        }
+    },
+    {
+        "context": "Prompt",
+        "bindings": {
+            "left": "menu::SelectPrev",
+            "down": "menu::SelectPrev",
+            "right": "menu::SelectNext",
+            "up": "menu::SelectNext"
         }
     },
     {
@@ -23,6 +39,12 @@
             "p": "project_panel::Paste",
             "x": "project_panel::Cut",
             "y": "project_panel::Copy"
+        }
+    },
+    {
+        "context": "vim_mode == insert",
+        "bindings": {
+            "ctrl-shift-v": "vim::Paste"
         }
     }
 ]
