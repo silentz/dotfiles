@@ -14,7 +14,7 @@
         }
     },
     {
-        "context": "ProjectPanel",
+        "context": "ProjectPanel && not_editing",
         "bindings": {
             "r": "project_panel::Rename",
             "d": "project_panel::Delete",
