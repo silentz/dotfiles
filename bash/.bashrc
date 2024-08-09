@@ -40,6 +40,7 @@ pathadd() {
 
 pathadd "$HOME/bin"
 pathadd "$HOME/script"
+pathadd "$HOME/stack/bin/"
 
 pathadd "$HOME/go/bin"
 pathadd "$HOME/flutter/bin"

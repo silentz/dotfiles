@@ -12,6 +12,7 @@ stow -t $HOME ranger
 stow -t $HOME bash
 stow -t $HOME alacritty
 stow -t $HOME nvim
+stow -t $HOME zed
 stow -t $HOME gitui
 stow -t $HOME lazygit
 stow -t $HOME images
