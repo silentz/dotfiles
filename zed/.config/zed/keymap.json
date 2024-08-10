@@ -17,7 +17,9 @@
     {
         "context": "Editor",
         "bindings": {
-            "g x": "editor::FindAllReferences"
+            "g x": "editor::FindAllReferences",
+            "ctrl-.": "editor::ToggleCodeActions",
+            "ctrl-x": "editor::ToggleCodeActions"
         }
     },
     {
