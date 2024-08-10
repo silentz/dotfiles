@@ -82,5 +82,10 @@
         "use_smartcase_find": false,
         "custom_digraphs": {}
     },
-    "line_indicator_format": "long"
+    "line_indicator_format": "long",
+    "languages": {
+        "Dart": {
+            "tab_size": 2
+        }
+    }
 }
