@@ -20,7 +20,8 @@
             "g x": "editor::FindAllReferences",
             "ctrl-.": "editor::ToggleCodeActions",
             "ctrl-x": "editor::ToggleCodeActions",
-            "ctrl-r": "editor::Rename"
+            "ctrl-r": "editor::Rename",
+            "ctrl-:": "editor::ToggleInlayHints"
         }
     },
     {
