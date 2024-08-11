@@ -19,7 +19,8 @@
         "bindings": {
             "g x": "editor::FindAllReferences",
             "ctrl-.": "editor::ToggleCodeActions",
-            "ctrl-x": "editor::ToggleCodeActions"
+            "ctrl-x": "editor::ToggleCodeActions",
+            "ctrl-r": "editor::Rename"
         }
     },
     {
