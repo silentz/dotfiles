@@ -53,7 +53,7 @@
         "enable_preview_from_code_navigation": false
     },
     "inlay_hints": {
-        "enabled": true,
+        "enabled": false,
         "show_type_hints": true,
         "show_parameter_hints": true,
         "show_other_hints": true,
