@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# ===== [config] =====
+
+bar_padding_left=$(printf "%2s")
+
+i3_workspace_icon=$(printf "\\ue9a2");
+i3_workspace_base_color="#4DD0E1";
+i3_workspace_active_color="#EC407A";
+i3_workspace_separator=$(printf "%2s")
+
+# ===== [script] =====
+
+function i3_get_workspaces {
+    i3-msg -t get_workspaces | jq '.[].num';
+}
+
+function i3_get_current_workspace {
+    i3-msg -t get_workspaces | jq '.[] | select(.focused == true).num';
+}
+
+function i3_format_workspaces {
+    i3_all_workspaces=$(i3_get_workspaces);
+    i3_current_workspace=$(i3_get_current_workspace)
+
+    index="0"
+    result="";
+
+    for wspace in $i3_all_workspaces; do
+        fmt_wspace="$i3_workspace_icon $wspace";
+
+        # check if workspace is active
+        if [ "$wspace" -eq "$i3_current_workspace" ]; then
+            fmt_wspace="%{F${i3_workspace_active_color}}$fmt_wspace"
+        else
+            fmt_wspace="%{F${i3_workspace_base_color}}$fmt_wspace"
+        fi
+
+        if [ "$index" -eq "0" ]; then
+            result="$fmt_wspace";
+        else
+            result="$result$i3_workspace_separator$fmt_wspace";
+        fi
+
+        index=$(expr $index + 1)
+    done;
+
+    echo "$result%{F-}";
+}
+
+function main {
+    while true
+    do
+        workspaces=$(i3_format_workspaces)
+        echo "%{l}$bar_padding_left$workspaces"
+        sleep 0.1
+    done
+}
+
+main

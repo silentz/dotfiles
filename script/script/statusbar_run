@@ -1,0 +1,8 @@
+#!/bin/bash
+
+statusbar_loop | lemonbar -p \
+    -B "#FF181818" \
+    -F "#FFEBDBB2" \
+    -g "x30" \
+    -f "feather:size=12" \
+    -f "UbuntuMono Nerd Font:size=11"
