@@ -34,7 +34,7 @@ i3_workspace_base_color="$color_cyan";
 i3_workspace_active_color="$color_pink";
 i3_workspace_separator=$(printf "%2s")
 
-time_icon=$(printf "\\ue939")
+time_icon=$(printf "\\uE013")
 time_icon_color="$color_red"
 
 battery_icon_charging=$(printf "\\uE00B")
