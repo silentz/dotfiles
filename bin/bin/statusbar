@@ -56,6 +56,13 @@ battery_color_discharged="$color_red"
 brightness_icon=$(printf "\\uE00D")
 brightness_icon_color="$color_yellow"
 
+volume_icon_mute=$(printf "\\uE011")
+volume_icon_level_070_100=$(printf "\\uE010")
+volume_icon_level_030_070=$(printf "\\uE00F")
+volume_icon_level_000_030=$(printf "\\uE00E")
+volume_color_mute="$color_red"
+volume_color_base="$color_blue"
+
 # ========== [utils] ==========
 
 function get_i3_workspaces {
@@ -88,6 +95,23 @@ function get_brightness_level {
     max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
     brightness=$(expr "$cur_brightness" '*' '100' '/' "$max_brightness")
     echo "$brightness"
+}
+
+function get_volume_level {
+    amixer -D pulse sget Master \
+        | grep '\[.*\]' \
+        | awk '{print $5}' \
+        | head -n 1 \
+        | tr -d '[]%'
+}
+
+function get_is_volume_on_mute {
+    amixer -D pulse sget Master \
+        | grep '\[.*\]' \
+        | awk '{print $6}' \
+        | head -n 1 \
+        | sed 's/\[on\]/0/g' \
+        | sed 's/\[off\]/1/g'
 }
 
 # ========== [format] ==========
@@ -170,6 +194,32 @@ function format_brightness_level {
     echo "%{F$brightness_icon_color}$brightness_icon%{F-} $brightness_level%%";
 }
 
+function format_volume_level {
+    volume_level=$(get_volume_level)
+    is_volume_on_mute=$(get_is_volume_on_mute)
+
+    volume_color="$volume_color_base"
+    volume_icon=""
+
+    if [ "$volume_level" -ge "70" ]; then
+        volume_icon="$volume_icon_level_070_100";
+    elif [ "$volume_level" -ge "30" ]; then
+        volume_icon="$volume_icon_level_030_070";
+    else
+        volume_icon="$volume_icon_level_000_030";
+    fi
+
+    if [ "$is_volume_on_mute" = "1" ]; then
+        volume_icon="$volume_icon_mute";
+        volume_color="$volume_color_mute";
+        volume_level="Muted";
+    else
+        volume_level="$volume_level%%";
+    fi
+
+    echo "%{F$volume_color}$volume_icon%{F-} $volume_level";
+}
+
 # ========== [main] ==========
 
 function concat_strings {
@@ -181,12 +231,15 @@ function statusbar_format_single {
     current_time=$(format_time)
     battery_level=$(format_battery_level)
     brightness_level=$(format_brightness_level)
+    volume_level=$(format_volume_level)
 
     result=""
     result=$(concat_strings "$result" "%{l}")
     result=$(concat_strings "$result" "$bar_padding_left")
     result=$(concat_strings "$result" "$workspaces")
     result=$(concat_strings "$result" "%{r}")
+    result=$(concat_strings "$result" "$volume_level")
+    result=$(concat_strings "$result" "$bar_separator")
     result=$(concat_strings "$result" "$brightness_level")
     result=$(concat_strings "$result" "$bar_separator")
     result=$(concat_strings "$result" "$battery_level")
