@@ -29,7 +29,7 @@ bar_separator=$(printf "%1s")
 bar_padding_left=$(printf "%2s")
 bar_padding_right=$(printf "%2s")
 
-i3_workspace_icon=$(printf "\\ue9a2");
+i3_workspace_icon=$(printf "\\uE00C");
 i3_workspace_base_color="$color_cyan";
 i3_workspace_active_color="$color_pink";
 i3_workspace_separator=$(printf "%2s")
