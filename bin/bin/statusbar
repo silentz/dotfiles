@@ -25,7 +25,7 @@ color_blue_gray="#6D8895"
 
 # ========== [config] ==========
 
-bar_separator=$(printf "%1s")
+bar_separator=$(printf "%2s")
 bar_padding_left=$(printf "%2s")
 bar_padding_right=$(printf "%2s")
 
@@ -53,6 +53,9 @@ battery_icon_level_000_005=$(printf "\\uE00A")
 battery_color_charging="$color_green"
 battery_color_discharged="$color_red"
 
+brightness_icon=$(printf "\\uE00D")
+brightness_icon_color="$color_yellow"
+
 # ========== [utils] ==========
 
 function get_i3_workspaces {
@@ -78,6 +81,13 @@ function get_is_battery_charging {
     else
         echo 0
     fi
+}
+
+function get_brightness_level {
+    cur_brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
+    max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+    brightness=$(expr "$cur_brightness" '*' '100' '/' "$max_brightness")
+    echo "$brightness"
 }
 
 # ========== [format] ==========
@@ -155,6 +165,11 @@ function format_battery_level {
     echo "%{F$battery_color}$battery_icon%{F-} $battery_level%%";
 }
 
+function format_brightness_level {
+    brightness_level=$(get_brightness_level);
+    echo "%{F$brightness_icon_color}$brightness_icon%{F-} $brightness_level%%";
+}
+
 # ========== [main] ==========
 
 function concat_strings {
@@ -165,12 +180,15 @@ function statusbar_format_single {
     workspaces=$(format_i3_workspaces)
     current_time=$(format_time)
     battery_level=$(format_battery_level)
+    brightness_level=$(format_brightness_level)
 
     result=""
     result=$(concat_strings "$result" "%{l}")
     result=$(concat_strings "$result" "$bar_padding_left")
     result=$(concat_strings "$result" "$workspaces")
     result=$(concat_strings "$result" "%{r}")
+    result=$(concat_strings "$result" "$brightness_level")
+    result=$(concat_strings "$result" "$bar_separator")
     result=$(concat_strings "$result" "$battery_level")
     result=$(concat_strings "$result" "$bar_separator")
     result=$(concat_strings "$result" "$current_time")
