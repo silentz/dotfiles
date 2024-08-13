@@ -63,6 +63,9 @@ volume_icon_level_000_030=$(printf "\\uE00E")
 volume_color_mute="$color_red"
 volume_color_base="$color_blue"
 
+keyboard_layout_icon=$(printf "\uE014")
+keyboard_layout_color="$color_blue_gray"
+
 # ========== [utils] ==========
 
 function get_i3_workspaces {
@@ -112,6 +115,10 @@ function get_is_volume_on_mute {
         | head -n 1 \
         | sed 's/\[on\]/0/g' \
         | sed 's/\[off\]/1/g'
+}
+
+function get_keyboard_layout {
+    xkblayout-state 'print' '%s'
 }
 
 # ========== [format] ==========
@@ -220,6 +227,11 @@ function format_volume_level {
     echo "%{F$volume_color}$volume_icon%{F-} $volume_level";
 }
 
+function format_keyboard_layout {
+    keyboard_layout=$(get_keyboard_layout)
+    echo "%{F$keyboard_layout_color}$keyboard_layout_icon%{F-} $keyboard_layout"
+}
+
 # ========== [main] ==========
 
 function concat_strings {
@@ -232,12 +244,15 @@ function statusbar_format_single {
     battery_level=$(format_battery_level)
     brightness_level=$(format_brightness_level)
     volume_level=$(format_volume_level)
+    keyboard_layout=$(format_keyboard_layout)
 
     result=""
     result=$(concat_strings "$result" "%{l}")
     result=$(concat_strings "$result" "$bar_padding_left")
     result=$(concat_strings "$result" "$workspaces")
     result=$(concat_strings "$result" "%{r}")
+    result=$(concat_strings "$result" "$keyboard_layout")
+    result=$(concat_strings "$result" "$bar_separator")
     result=$(concat_strings "$result" "$volume_level")
     result=$(concat_strings "$result" "$bar_separator")
     result=$(concat_strings "$result" "$brightness_level")
