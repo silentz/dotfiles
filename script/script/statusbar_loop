@@ -1,27 +1,37 @@
 #!/bin/bash
 
-# ===== [config] =====
+# ========== [config] ==========
 
 bar_padding_left=$(printf "%2s")
+bar_padding_right=$(printf "%2s")
 
 i3_workspace_icon=$(printf "\\ue9a2");
 i3_workspace_base_color="#4DD0E1";
 i3_workspace_active_color="#EC407A";
 i3_workspace_separator=$(printf "%2s")
 
-# ===== [script] =====
+time_icon=$(printf "\\ue939")
+time_icon_color="#EC7875"
 
-function i3_get_workspaces {
+# ========== [utils] ==========
+
+function get_i3_workspaces {
     i3-msg -t get_workspaces | jq '.[].num';
 }
 
-function i3_get_current_workspace {
+function get_i3_current_workspace {
     i3-msg -t get_workspaces | jq '.[] | select(.focused == true).num';
 }
 
-function i3_format_workspaces {
-    i3_all_workspaces=$(i3_get_workspaces);
-    i3_current_workspace=$(i3_get_current_workspace)
+function get_current_time {
+    date "+%H:%M:%S"
+}
+
+# ========== [format] ==========
+
+function format_i3_workspaces {
+    i3_all_workspaces=$(get_i3_workspaces);
+    i3_current_workspace=$(get_i3_current_workspace)
 
     index="0"
     result="";
@@ -48,11 +58,22 @@ function i3_format_workspaces {
     echo "$result%{F-}";
 }
 
+function format_time {
+    echo "%{F$time_icon_color}$time_icon%{F-} $(get_current_time)"
+}
+
+# ========== [main] ==========
+
 function main {
     while true
     do
-        workspaces=$(i3_format_workspaces)
-        echo "%{l}$bar_padding_left$workspaces"
+        workspaces=$(format_i3_workspaces)
+        current_time=$(format_time)
+
+        result="%{l}$bar_padding_left$workspaces"
+        result="$result %{r}$current_time$bar_padding_right"
+
+        echo "$result"
         sleep 0.1
     done
 }
