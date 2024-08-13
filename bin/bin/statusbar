@@ -64,18 +64,32 @@ function format_time {
 
 # ========== [main] ==========
 
-function main {
+function statusbar_format_single {
+    workspaces=$(format_i3_workspaces)
+    current_time=$(format_time)
+
+    result="%{l}$bar_padding_left$workspaces"
+    result="$result %{r}$current_time$bar_padding_right"
+
+    echo "$result"
+}
+
+function statusbar_format_loop {
     while true
     do
-        workspaces=$(format_i3_workspaces)
-        current_time=$(format_time)
-
-        result="%{l}$bar_padding_left$workspaces"
-        result="$result %{r}$current_time$bar_padding_right"
-
-        echo "$result"
+        statusbar_format_single
         sleep 0.1
     done
+}
+
+function main {
+    statusbar_format_loop | \
+        lemonbar \
+            -B "#FF181818" \
+            -F "#FFEBDBB2" \
+            -g "x30" \
+            -f "feather:size=12" \
+            -f "UbuntuMono Nerd Font:size=11"
 }
 
 main
