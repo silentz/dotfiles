@@ -1,17 +1,57 @@
 #!/bin/bash
 
+# ========== [colors] ==========
+
+color_background="#181818"
+color_foreground="#EBDBB2"
+
+color_white="#E0E0E0"
+color_black="#000000"
+color_red="#EC7875"
+color_pink="#EC407A"
+color_purple="#BA68C8"
+color_blue="#42A5F5"
+color_cyan="#4DD0E1"
+color_teal="#00B19F"
+color_green="#61C766"
+color_lime="#B9C244"
+color_yellow="#FDD835"
+color_amber="#FBC02D"
+color_orange="#E57C46"
+color_brown="#AC8476"
+color_indigo="#6C77BB"
+color_gray="#9E9E9E"
+color_blue_gray="#6D8895"
+
 # ========== [config] ==========
 
+bar_separator=$(printf "%1s")
 bar_padding_left=$(printf "%2s")
 bar_padding_right=$(printf "%2s")
 
 i3_workspace_icon=$(printf "\\ue9a2");
-i3_workspace_base_color="#4DD0E1";
-i3_workspace_active_color="#EC407A";
+i3_workspace_base_color="$color_cyan";
+i3_workspace_active_color="$color_pink";
 i3_workspace_separator=$(printf "%2s")
 
 time_icon=$(printf "\\ue939")
-time_icon_color="#EC7875"
+time_icon_color="$color_red"
+
+battery_icon_charging=$(printf "\\uE00B")
+battery_icon_level_095_100=$(printf "\\uE000")
+battery_icon_level_090_095=$(printf "\\uE000")
+battery_icon_level_080_090=$(printf "\\uE009")
+battery_icon_level_070_080=$(printf "\\uE008")
+battery_icon_level_060_070=$(printf "\\uE007")
+battery_icon_level_050_060=$(printf "\\uE006")
+battery_icon_level_040_050=$(printf "\\uE005")
+battery_icon_level_030_040=$(printf "\\uE004")
+battery_icon_level_020_030=$(printf "\\uE003")
+battery_icon_level_010_020=$(printf "\\uE002")
+battery_icon_level_005_010=$(printf "\\uE001")
+battery_icon_level_000_005=$(printf "\\uE00A")
+battery_color_charging="$color_green"
+battery_color_discharged="$color_red"
 
 # ========== [utils] ==========
 
@@ -25,6 +65,19 @@ function get_i3_current_workspace {
 
 function get_current_time {
     date "+%H:%M:%S"
+}
+
+function get_battery_level {
+    cat /sys/class/power_supply/*/capacity
+}
+
+function get_is_battery_charging {
+    battery_status=$(cat /sys/class/power_supply/*/status)
+    if [ "$battery_status" = "Charging" ]; then
+        echo 1
+    else
+        echo 0
+    fi
 }
 
 # ========== [format] ==========
@@ -62,14 +115,66 @@ function format_time {
     echo "%{F$time_icon_color}$time_icon%{F-} $(get_current_time)"
 }
 
+function format_battery_level {
+    battery_level=$(get_battery_level)
+    is_battery_charging=$(get_is_battery_charging)
+
+    battery_color="$color_foreground"
+    battery_icon=""
+
+    if [ "$is_battery_charging" = "1" ]; then
+        battery_icon="$battery_icon_charging";
+        battery_color="$battery_color_charging";
+    elif [ "$battery_level" -ge "95" ]; then
+        battery_icon="$battery_icon_level_095_100";
+    elif [ "$battery_level" -ge "90" ]; then
+        battery_icon="$battery_icon_level_090_095";
+    elif [ "$battery_level" -ge "80" ]; then
+        battery_icon="$battery_icon_level_080_090";
+    elif [ "$battery_level" -ge "70" ]; then
+        battery_icon="$battery_icon_level_070_080";
+    elif [ "$battery_level" -ge "60" ]; then
+        battery_icon="$battery_icon_level_060_070";
+    elif [ "$battery_level" -ge "50" ]; then
+        battery_icon="$battery_icon_level_050_060";
+    elif [ "$battery_level" -ge "40" ]; then
+        battery_icon="$battery_icon_level_040_050";
+    elif [ "$battery_level" -ge "30" ]; then
+        battery_icon="$battery_icon_level_030_020";
+    elif [ "$battery_level" -ge "20" ]; then
+        battery_icon="$battery_icon_level_020_030";
+    elif [ "$battery_level" -ge "10" ]; then
+        battery_icon="$battery_icon_level_010_020";
+    elif [ "$battery_level" -ge "5" ]; then
+        battery_icon="$battery_icon_level_005_010";
+    else
+        battery_icon="$battery_icon_level_000_005";
+        battery_color="$battery_color_discharged";
+    fi
+
+    echo "%{F$battery_color}$battery_icon%{F-} $battery_level%%";
+}
+
 # ========== [main] ==========
+
+function concat_strings {
+    echo "$1$2"
+}
 
 function statusbar_format_single {
     workspaces=$(format_i3_workspaces)
     current_time=$(format_time)
+    battery_level=$(format_battery_level)
 
-    result="%{l}$bar_padding_left$workspaces"
-    result="$result %{r}$current_time$bar_padding_right"
+    result=""
+    result=$(concat_strings "$result" "%{l}")
+    result=$(concat_strings "$result" "$bar_padding_left")
+    result=$(concat_strings "$result" "$workspaces")
+    result=$(concat_strings "$result" "%{r}")
+    result=$(concat_strings "$result" "$battery_level")
+    result=$(concat_strings "$result" "$bar_separator")
+    result=$(concat_strings "$result" "$current_time")
+    result=$(concat_strings "$result" "$bar_padding_right")
 
     echo "$result"
 }
@@ -82,14 +187,19 @@ function statusbar_format_loop {
     done
 }
 
-function main {
+function run {
     statusbar_format_loop | \
         lemonbar \
-            -B "#FF181818" \
-            -F "#FFEBDBB2" \
+            -B "$color_background" \
+            -F "$color_foreground" \
             -g "x30" \
-            -f "feather:size=12" \
+            -f "StatusbarFont:size=13" \
             -f "UbuntuMono Nerd Font:size=11"
 }
 
-main
+function run_debug {
+    statusbar_format_loop
+}
+
+run
+# run_debug
