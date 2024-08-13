@@ -219,7 +219,7 @@ function format_volume_level {
     if [ "$is_volume_on_mute" = "1" ]; then
         volume_icon="$volume_icon_mute";
         volume_color="$volume_color_mute";
-        volume_level="Muted";
+        volume_level="muted";
     else
         volume_level="$volume_level%%";
     fi
