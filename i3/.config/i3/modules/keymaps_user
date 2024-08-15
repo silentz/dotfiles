@@ -8,6 +8,10 @@ bindsym $mod+Next             exec --no-startup-id ~/bin/system/system_env_wrapp
 bindsym $mod+Shift+Prior      exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_swap_workspace.sh left
 bindsym $mod+Shift+Next       exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_swap_workspace.sh right
 
+bindsym $mod+Shift+e          exec --no-startup-id ~/.config/rofi/run/powermenu.sh
+bindsym $mod+d                exec --no-startup-id ~/.config/rofi/run/drun.sh
+bindsym $mod+u                exec --no-startup-id ~/.config/rofi/run/window.sh
+
 bindsym XF86AudioMute         exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_mute_toggle.sh
 bindsym XF86AudioRaiseVolume  exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_up.sh
 bindsym XF86AudioLowerVolume  exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_down.sh

@@ -75,17 +75,6 @@ bindsym $mod+Shift+r restart
 # soft reload i3 config
 bindsym $mod+Shift+w reload
 
-# exit mode
-bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/run/powermenu.sh
-
-# dmenu
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/run/drun.sh
-
-# window
-bindsym $mod+u exec --no-startup-id ~/.config/rofi/run/window.sh
-
-# MULTIMONITOR
-
 # move between monitors
 bindsym $mod+Shift+p move container to output next
 bindsym $mod+Shift+o move workspace to output next
