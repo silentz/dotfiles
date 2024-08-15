@@ -57,14 +57,6 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# move one workspace left or right
-bindsym $mod+Prior exec --no-startup-id ~/.config/i3/modules/scripts/move_workspace.sh left
-bindsym $mod+Next  exec --no-startup-id ~/.config/i3/modules/scripts/move_workspace.sh right
-
-# swap workspaces
-bindsym $mod+Shift+Prior exec --no-startup-id ~/.config/i3/modules/scripts/swap_workspace.sh left
-bindsym $mod+Shift+Next  exec --no-startup-id ~/.config/i3/modules/scripts/swap_workspace.sh right
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
