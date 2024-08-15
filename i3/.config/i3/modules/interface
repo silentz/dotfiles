@@ -14,6 +14,7 @@ default_orientation horizontal
 # border settings
 default_border pixel 2
 default_floating_border normal
+for_window [floating] border normal
 
 # title alignment
 title_align left
