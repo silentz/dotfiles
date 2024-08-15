@@ -1,6 +1,6 @@
 # on system startup only
-exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080
-exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screen_resolution.sh
+exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_notification_manager.sh
 
 # on i3 restart and systrem startup
 exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_keyboard_lang.sh
