@@ -1,26 +1,18 @@
-# start terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return           exec --no-startup-id alacritty
+bindsym $mod+b                exec --no-startup-id chromium
+bindsym $mod+n                exec --no-startup-id thunar
+bindsym $mod+l                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_lock_screen.sh
 
-# start browser
-bindsym $mod+b exec --no-startup-id chromium
+bindsym XF86AudioMute         exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_mute_toggle.sh
+bindsym XF86AudioRaiseVolume  exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_up.sh
+bindsym XF86AudioLowerVolume  exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_down.sh
+bindsym XF86AudioMicMute      exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_microphone_toggle.sh
 
-# start file manager
-bindsym $mod+n exec --no-startup-id thunar
-
-# lock screen
-bindsym $mod+l exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_lock_screen.sh
-
-# sound prefs
-bindsym XF86AudioMute        exec --no-startup-id amixer -q -D pulse sset Master toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
-bindsym XF86AudioMicMute     exec --no-startup-id amixer -q -D pulse sset Capture toggle
-
-# brightness and redshift
 bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_brightness_up.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_brightness_down.sh
 bindsym F12                   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_redshift_on.sh
 bindsym Shift+F12             exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_redshift_off.sh
+
 bindsym $mod+Print            exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screenshot.sh
 bindsym Shift+Control+Print   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screenshot_clipboard.sh
 
