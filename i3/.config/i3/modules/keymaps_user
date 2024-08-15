@@ -1,6 +1,6 @@
-bindsym $mod+Return           exec --no-startup-id alacritty
-bindsym $mod+b                exec --no-startup-id chromium
-bindsym $mod+n                exec --no-startup-id thunar
+bindsym $mod+Return           exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_terminal.sh
+bindsym $mod+b                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_browser.sh
+bindsym $mod+n                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_file_manager.sh
 bindsym $mod+l                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_lock_screen.sh
 
 bindsym XF86AudioMute         exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_mute_toggle.sh
