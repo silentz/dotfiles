@@ -1,25 +1,12 @@
-# fix screen resolution
+# on system startup only
 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080
-
-# keyboard layouts
-exec --no-startup-id setxkbmap -layout us,ru -option grp:alt_space_toggle
-
-# polybar
-exec --no-startup-id ~/.config/i3/modules/scripts/statusbar.sh
-
-# add natural scrolling for touchpad
-exec --no-startup-id ~/.config/i3/modules/scripts/touchpad.sh
-
-# set key repeat rate and delay
-exec --no-startup-id ~/.config/i3/modules/scripts/keyboard.sh
-
-# set wallpapers
-exec --no-startup-id ~/.config/i3/modules/scripts/wallpapers.sh
-
-# setup dpms (blank timeout) and auto lock screen
-exec --no-startup-id ~/.config/i3/modules/scripts/dpms.sh
-exec --no-startup-id xss-lock --transfer-sleep-lock -- \
-                     ~/.config/i3/modules/scripts/lock.sh
-
-# launch dunst
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+
+# on i3 restart and systrem startup
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_keyboard_lang.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_keyboard_rate.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_touchpad.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_statusbar.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_wallpapers.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_setup_dpms.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_start_xss_lock.sh
