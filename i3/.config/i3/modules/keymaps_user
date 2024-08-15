@@ -8,7 +8,6 @@ bindsym $mod+backslash exec --no-startup-id ~/.config/i3/modules/scripts/floatte
 bindsym $mod+b exec --no-startup-id chromium
 
 # start file manager
-# bindsym $mod+n exec --no-startup-id alacritty -e ranger
 bindsym $mod+n exec --no-startup-id thunar
 
 # lock screen
@@ -23,9 +22,8 @@ bindsym XF86AudioMicMute     exec --no-startup-id amixer -q -D pulse sset Captur
 # brightness and redshift
 bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
-bindsym XF86Favorites         exec --no-startup-id ~/.config/i3/modules/scripts/redshift_on.sh
-bindsym Shift+XF86Favorites   exec --no-startup-id ~/.config/i3/modules/scripts/redshift_off.sh
-bindsym F7                    exec --no-startup-id ~/.config/i3/modules/scripts/update_displays.sh
+bindsym F12                   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_redshift_on.sh
+bindsym Shift+F12             exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_redshift_off.sh
 
 # keyboard backlight
 # it's hardware hotkey on lenovo x1 thinkpad series
