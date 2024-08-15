@@ -1,9 +1,6 @@
 # start terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
-# start floating term
-bindsym $mod+backslash exec --no-startup-id ~/.config/i3/modules/scripts/floatterm.sh
-
 # start browser
 bindsym $mod+b exec --no-startup-id chromium
 
