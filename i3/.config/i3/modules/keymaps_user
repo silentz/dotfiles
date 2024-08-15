@@ -15,8 +15,3 @@ bindsym Shift+F12             exec --no-startup-id ~/bin/system/system_env_wrapp
 
 bindsym $mod+Print            exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screenshot.sh
 bindsym Shift+Control+Print   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screenshot_clipboard.sh
-
-# keyboard backlight
-# it's hardware hotkey on lenovo x1 thinkpad series
-# uncomment if does not work on another laptop
-# bindsym Control+space exec --no-startup-id ~/.config/i3/modules/scripts/keyboard_backlight.sh
