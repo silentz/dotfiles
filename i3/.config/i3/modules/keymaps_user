@@ -17,16 +17,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master
 bindsym XF86AudioMicMute     exec --no-startup-id amixer -q -D pulse sset Capture toggle
 
 # brightness and redshift
-bindsym XF86MonBrightnessUp   exec --no-startup-id light -A 5
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+bindsym XF86MonBrightnessUp   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_brightness_up.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_brightness_down.sh
 bindsym F12                   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_redshift_on.sh
 bindsym Shift+F12             exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_redshift_off.sh
+bindsym $mod+Print            exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screenshot.sh
+bindsym Shift+Control+Print   exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screenshot_clipboard.sh
 
 # keyboard backlight
 # it's hardware hotkey on lenovo x1 thinkpad series
 # uncomment if does not work on another laptop
 # bindsym Control+space exec --no-startup-id ~/.config/i3/modules/scripts/keyboard_backlight.sh
-
-# screenshots
-bindsym $mod+Print          exec --no-startup-id flameshot gui
-bindsym Shift+Control+Print exec --no-startup-id flameshot gui --clipboard
