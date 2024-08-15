@@ -2,10 +2,3 @@
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="System-config-printer.py"] floating enable
-
-# floatterm
-for_window [title="floatterm"] floating enable
-for_window [title="floatterm"] move scratchpad
-for_window [title="floatterm"] scratchpad show
-for_window [title="floatterm"] resize set 1200 700
-for_window [title="floatterm"] move position center
