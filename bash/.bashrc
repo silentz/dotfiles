@@ -22,10 +22,6 @@ fi
 
 export PS1="[\u@\h \[\e[34m\]\w\[\e[m\]]\\$ "
 
-# ========= [common ssh-agent] ==========
-
-eval $(keychain --agents ssh --quick --quiet --eval)
-
 # ========= [env vars] ==========
 
 export EDITOR="nvim"
@@ -39,6 +35,7 @@ pathadd() {
 }
 
 pathadd "$HOME/bin"
+pathadd "$HOME/bin/system"
 pathadd "$HOME/script"
 pathadd "$HOME/stack/bin/"
 
