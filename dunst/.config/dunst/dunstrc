@@ -61,15 +61,15 @@ icon_corner_radius = 0          # icon image border radius
 # Markup is allowed
 format = "<b>%a</b> <i>%s</i>\n%b"
 
-font = Ubuntu Nerd Font 10      # font used to render messages
-alignment = left                # horizontal alignment (left, center, right)
-vertical_alignment = center     # vertical alignment (top, center, bottom)
-show_age_threshold = 60         # show age of message if it is older than N seconds (-1 to disable).
-ellipsize = end                 # where to make an ellipsis in long lines (start, middle, end)
-ignore_newline = no             # ignore newlines '\n' in notifications
-stack_duplicates = true         # stack together notifications with the same content
-hide_duplicate_count = false    # hide the count of stacked notifications with the same content
-show_indicators = no            # display indicators for URLs (U) and actions (A).
+font = Ubuntu 10, Symbols Nerd Font 10  # font used to render messages
+alignment = left                        # horizontal alignment (left, center, right)
+vertical_alignment = center             # vertical alignment (top, center, bottom)
+show_age_threshold = 60                 # show age of message if it is older than N seconds (-1 to disable).
+ellipsize = end                         # where to make an ellipsis in long lines (start, middle, end)
+ignore_newline = no                     # ignore newlines '\n' in notifications
+stack_duplicates = true                 # stack together notifications with the same content
+hide_duplicate_count = false            # hide the count of stacked notifications with the same content
+show_indicators = no                    # display indicators for URLs (U) and actions (A).
 
 line_height = 0                 # spacing between lines. if this height is smaller than the
                                 # font height, it will get raised to the font height
