@@ -1,5 +1,5 @@
 # on system startup only
-exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_screen_standalone.sh
+exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screen_standalone.sh
 
 # on i3 restart and system startup
 exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_notification_manager.sh
