@@ -76,5 +76,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+w reload
 
 # move between monitors
-bindsym $mod+Shift+p move container to output next
-bindsym $mod+Shift+o move workspace to output next
+bindsym $mod+Shift+i move container to output up;    focus output up
+bindsym $mod+Shift+j move container to output left;  focus output left
+bindsym $mod+Shift+k move container to output down;  focus output down
+bindsym $mod+Shift+l move container to output right; focus output right
