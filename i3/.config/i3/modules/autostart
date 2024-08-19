@@ -1,5 +1,5 @@
 # on i3 restart and systrem startup
-exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_setup_screen_home.sh
+exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_screen_home.sh
 exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_notification_manager.sh
 exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_keyboard_lang.sh
 exec_always --no-startup-id ~/bin/system/system_env_wrapper.sh system_keyboard_rate.sh
