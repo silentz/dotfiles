@@ -8,6 +8,8 @@ bindsym $mod+Next             exec --no-startup-id ~/bin/system/system_env_wrapp
 bindsym $mod+Shift+Prior      exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_swap_workspace.sh left
 bindsym $mod+Shift+Next       exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_swap_workspace.sh right
 
+bindsym F7                    exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screen_standalone.sh
+
 bindsym $mod+Shift+e          exec --no-startup-id ~/.config/rofi/run/powermenu.sh
 bindsym $mod+d                exec --no-startup-id ~/.config/rofi/run/drun.sh
 bindsym $mod+u                exec --no-startup-id ~/.config/rofi/run/window.sh
