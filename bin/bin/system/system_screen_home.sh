@@ -1,3 +1,3 @@
 #!/bin/bash
 
-xrandr --output eDP-1 --auto
+system_screen_standalone.sh
