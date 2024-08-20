@@ -1,6 +1,6 @@
 #!/bin/bash
 
-killall -q lemonbar_generator
+killall -q lemonbar-generator
 
 lemonbar-generator | lemonbar \
     -f "StatusbarFont:size=12" \
