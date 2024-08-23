@@ -8,7 +8,6 @@ stow -t $HOME rofi
 stow -t $HOME gsimplecal
 stow -t $HOME bash
 stow -t $HOME alacritty
-stow -t $HOME nvim
 stow -t $HOME zed
 stow -t $HOME images
 stow -t $HOME fonts
