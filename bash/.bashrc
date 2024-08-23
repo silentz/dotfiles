@@ -24,7 +24,7 @@ export PS1="[\u@\h \[\e[34m\]\w\[\e[m\]]\\$ "
 
 # ========= [env vars] ==========
 
-export EDITOR="nvim"
+export EDITOR="vim"
 export CHROME_EXECUTABLE=/usr/bin/chromium
 export ANDROID_HOME="$HOME/Android"
 
@@ -49,3 +49,4 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias lua='lua5.4'
+alias zed="zeditor"
