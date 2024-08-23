@@ -42,6 +42,14 @@ pathadd "$HOME/stack/bin/"
 pathadd "$HOME/go/bin"
 pathadd "$HOME/flutter/bin"
 
+# ========= [libs env] ==========
+
+libadd() {
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$1"
+}
+
+libadd "$HOME/stack/lib"
+
 # ========= [aliases] ==========
 
 alias ls='ls --color=auto'
