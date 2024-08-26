@@ -57,4 +57,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias lua='lua5.4'
-alias zed="zeditor"
+
+if ! command -v "zed" > /dev/null; then
+    alias zed="zeditor";
+fi
