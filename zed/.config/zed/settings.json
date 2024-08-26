@@ -96,7 +96,8 @@
     },
     "auto_install_extensions": {
         "html": true,
-        "dart": true
+        "dart": true,
+        "make": true
     },
     "vim": {
         "use_system_clipboard": "always",
@@ -110,6 +111,13 @@
             "tab_size": 2
         },
         "Go": {
+            "tab_size": 4,
+            "hard_tabs": true
+        },
+        "YAML": {
+            "tab_size": 2
+        },
+        "Make": {
             "tab_size": 4,
             "hard_tabs": true
         }
