@@ -10,6 +10,9 @@
     "buffer_line_height": {
         "custom": 1.618
     },
+    "buffer_font_features": {
+        "calt": false
+    },
     "ui_font_features": {
         "calt": false
     },
