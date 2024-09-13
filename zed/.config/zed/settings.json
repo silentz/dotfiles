@@ -97,7 +97,8 @@
     "auto_install_extensions": {
         "html": true,
         "dart": true,
-        "make": true
+        "make": true,
+        "java-eclipse-jdtls": true
     },
     "vim": {
         "use_system_clipboard": "always",
