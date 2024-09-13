@@ -68,7 +68,7 @@
         "folder_icons": true,
         "git_status": true,
         "indent_size": 20,
-        "auto_reveal_entries": true,
+        "auto_reveal_entries": false,
         "auto_fold_dirs": false,
         "scrollbar": {
             "show": "always"
