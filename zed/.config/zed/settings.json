@@ -102,7 +102,8 @@
         "html": true,
         "dart": true,
         "make": true,
-        "java-eclipse-jdtls": true
+        "java-eclipse-jdtls": true,
+        "xml": true
     },
     "vim": {
         "use_system_clipboard": "always",
