@@ -52,6 +52,13 @@
         }
     },
     {
+        "context": "vim_mode == visual",
+        "bindings": {
+            ">": "editor::Indent",
+            "<": "editor::Outdent"
+        }
+    },
+    {
         "context": "vim_mode == insert",
         "bindings": {
             "ctrl-shift-v": "editor::Paste"
