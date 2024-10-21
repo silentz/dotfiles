@@ -102,7 +102,7 @@
         "html": true,
         "dart": true,
         "make": true,
-        "java-eclipse-jdtls": true,
+        "java": true,
         "xml": true
     },
     "vim": {
@@ -121,11 +121,27 @@
             "hard_tabs": true
         },
         "YAML": {
-            "tab_size": 2
+            "tab_size": 2,
+            "format_on_save": "off"
         },
         "Make": {
             "tab_size": 4,
             "hard_tabs": true
+        }
+    },
+    "lsp": {
+        "yaml-language-server": {
+            "settings": {
+                "yaml": {
+                    "format": {
+                        "enable": false
+                    },
+                    "schemas": {},
+                    "schemaStore": {
+                        "enable": false
+                    }
+                }
+            }
         }
     }
 }
