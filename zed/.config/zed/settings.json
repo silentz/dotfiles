@@ -142,6 +142,25 @@
                     }
                 }
             }
+        },
+        "jdtls": {
+            "initialization_options": {
+                "settings": {
+                    "java": {
+                        "configuration": {
+                            "updateBuildConfiguration": "interactive"
+                        },
+                        "import": {
+                            "maven": {
+                                "enabled": true
+                            }
+                        },
+                        "maven": {
+                            "downloadSources": true
+                        }
+                    }
+                }
+            }
         }
     }
 }
