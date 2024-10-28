@@ -2,6 +2,7 @@ bindsym $mod+Return           exec --no-startup-id ~/bin/system/system_env_wrapp
 bindsym $mod+b                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_browser.sh
 bindsym $mod+n                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_file_manager.sh
 bindsym $mod+l                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_lock_screen.sh
+bindsym $mod+t                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_update_datetime.sh
 
 bindsym $mod+Prior            exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_move_workspace.sh left
 bindsym $mod+Next             exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_move_workspace.sh right
