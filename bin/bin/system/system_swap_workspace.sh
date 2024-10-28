@@ -19,3 +19,5 @@ fi
 i3-msg "rename workspace $current to _temp; \
         rename workspace $origin to $current; \
         rename workspace _temp to $origin"
+
+lemonbar-generator-client workspace
