@@ -1,0 +1,4 @@
+if [ -d "$HOME/.local/share/fonts" ]; then
+    xset +fp "$HOME/.local/share/fonts"
+    xset fp rehash
+fi
