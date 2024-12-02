@@ -36,6 +36,7 @@ pathadd() {
 
 pathadd "$HOME/bin"
 pathadd "$HOME/bin/system"
+pathadd "$HOME/bin/screen"
 pathadd "$HOME/script"
 pathadd "$HOME/stack/bin/"
 
