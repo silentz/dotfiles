@@ -25,9 +25,6 @@ set mouse=a
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
 
-" Always show tabs
-set showtabline=2
-
 " Smart case
 set smartcase
 
@@ -58,9 +55,6 @@ set shiftwidth=4
 " Insert so much spaces for a tab
 set tabstop=4
 
-" Highlight the current line
-set cursorline
-
 " Set numbered lines
 set number
 
@@ -76,14 +70,8 @@ set nowritebackup
 " Enable persistent undo
 set undofile
 
-" Always show the sign column
-set signcolumn=yes
-
 " Display lines as one long line
 set wrap
 
 " Don't split words when wrapping lines
 set linebreak
-
-" Minimal number of screen columns either side of cursor
-set sidescrolloff=8
