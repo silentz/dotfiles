@@ -9,6 +9,7 @@ stow -t $HOME gsimplecal
 stow -t $HOME bash
 stow -t $HOME alacritty
 stow -t $HOME zed
+stow -t $HOME vim
 stow -t $HOME images
 stow -t $HOME fonts
 fc-cache -f -v
