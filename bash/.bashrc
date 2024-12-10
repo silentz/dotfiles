@@ -13,7 +13,7 @@ export HISTFILESIZE=0           # number of commands to save to history file
 export HISTCONTROL=ignoreboth   # do not save lines with space prefix
 shopt -s histappend             # append histfile, do not overwrite
 
-export PYTHONHISTFILE=/dev/null  # python history file
+export PYTHON_HISTORY=/dev/null  # python history file
 export LESSHISTFILE=/dev/null    # less history file
 
 # ========= [bash-completion] ==========
