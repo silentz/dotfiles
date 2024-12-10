@@ -7,8 +7,9 @@ esac
 
 # ========= [history] ==========
 
+export HISTFILE=/dev/null       # bash history file
 export HISTSIZE=1000            # number of commands to remember in ram
-export HISTFILESIZE=-1          # unlimit bash history file size
+export HISTFILESIZE=0           # number of commands to save to history file
 export HISTCONTROL=ignoreboth   # do not save lines with space prefix
 shopt -s histappend             # append histfile, do not overwrite
 
