@@ -1,0 +1,9 @@
+#!/bin/bash
+
+directory="${TARGET_DIRECTORY:-$HOME}"
+
+rm "$directory/.bash_history"
+rm "$directory/.python_history"
+rm "$directory/.lesshst"
+rm "$directory/.wget-hsts"
+rm "$directory/.viminfo"
