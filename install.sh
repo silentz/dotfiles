@@ -12,4 +12,5 @@ stow -t $HOME zed
 stow -t $HOME vim
 stow -t $HOME images
 stow -t $HOME fonts
+stow -t $HOME wget
 fc-cache -f -v
