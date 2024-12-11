@@ -39,6 +39,7 @@ pathadd() {
     export PATH="$PATH:$1"
 }
 
+pathadd "$HOME/.local/bin"
 pathadd "$HOME/bin"
 pathadd "$HOME/bin/system"
 pathadd "$HOME/bin/screen"
