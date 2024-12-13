@@ -130,6 +130,9 @@
         },
         "C": {
             "format_on_save": "off"
+        },
+        "HTML": {
+            "format_on_save": "off"
         }
     },
     "lsp": {
