@@ -12,6 +12,7 @@ stow -t $HOME images
 stow -t $HOME rofi
 stow -t $HOME vim
 stow -t $HOME wget
+stow -t $HOME xdg
 stow -t $HOME yazi
 stow -t $HOME zed
 
