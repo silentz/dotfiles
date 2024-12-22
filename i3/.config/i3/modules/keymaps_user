@@ -3,6 +3,7 @@ bindsym $mod+b                exec --no-startup-id ~/bin/system/system_env_wrapp
 bindsym $mod+n                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_file_manager.sh
 bindsym $mod+l                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_lock_screen.sh
 bindsym $mod+t                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_update_datetime.sh
+bindsym $mod+d                exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_drun.sh
 
 bindsym $mod+Prior            exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_move_workspace.sh left
 bindsym $mod+Next             exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_move_workspace.sh right
@@ -11,10 +12,6 @@ bindsym $mod+Shift+Next       exec --no-startup-id ~/bin/system/system_env_wrapp
 
 bindsym F7                    exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_screen_standalone.sh
 bindsym Mod1+space            exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_change_keyboard_layout.sh
-
-bindsym $mod+Shift+e          exec --no-startup-id ~/.config/rofi/run/powermenu.sh
-bindsym $mod+d                exec --no-startup-id ~/.config/rofi/run/drun.sh
-bindsym $mod+u                exec --no-startup-id ~/.config/rofi/run/window.sh
 
 bindsym XF86AudioMute         exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_mute_toggle.sh
 bindsym XF86AudioRaiseVolume  exec --no-startup-id ~/bin/system/system_env_wrapper.sh system_volume_up.sh
