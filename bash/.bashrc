@@ -39,15 +39,16 @@ pathadd() {
     export PATH="$PATH:$1"
 }
 
-pathadd "$HOME/.local/bin"
 pathadd "$HOME/bin"
 pathadd "$HOME/bin/system"
 pathadd "$HOME/bin/screen"
 pathadd "$HOME/script"
 pathadd "$HOME/stack/bin/"
 
+pathadd "$HOME/.local/bin"
 pathadd "$HOME/go/bin"
 pathadd "$HOME/flutter/bin"
+pathadd "$HOME/.Cargo/bin"
 
 # ========= [libs env] ==========
 
