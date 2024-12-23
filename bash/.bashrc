@@ -48,7 +48,7 @@ pathadd "$HOME/stack/bin/"
 pathadd "$HOME/.local/bin"
 pathadd "$HOME/go/bin"
 pathadd "$HOME/flutter/bin"
-pathadd "$HOME/.Cargo/bin"
+pathadd "$HOME/.cargo/bin"
 
 # ========= [libs env] ==========
 
