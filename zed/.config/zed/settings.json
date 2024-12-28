@@ -5,20 +5,23 @@
         "dark": "Ayu Mirage"
     },
     "base_keymap": "VSCode",
-    "buffer_font_family": "Zed Plex Mono",
+    "buffer_font_family": "IBM Plex Mono",
     "buffer_font_size": 15,
     "buffer_font_weight": 400,
     "buffer_line_height": {
         "custom": 1.618
     },
     "buffer_font_features": {
-        "calt": false
+        "calt": false,
+        "dlig": false
     },
-    "ui_font_features": {
-        "calt": false
-    },
-    "ui_font_weight": 400,
+    "ui_font_family": "IBM Plex Sans",
     "ui_font_size": 16,
+    "ui_font_weight": 400,
+    "ui_font_features": {
+        "calt": false,
+        "dlig": false
+    },
     "vim_mode": true,
     "restore_on_startup": "last_session",
     "use_system_path_prompts": false,
