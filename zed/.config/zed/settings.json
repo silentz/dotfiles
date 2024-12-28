@@ -34,6 +34,11 @@
     "use_autoclose": true,
     "use_auto_surround": true,
     "show_inline_completions": true,
+    "terminal": {
+        "toolbar": {
+            "breadcrumbs": false
+        }
+    },
     "collaboration_panel": {
         "button": false
     },
