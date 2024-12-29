@@ -141,6 +141,9 @@
         },
         "HTML": {
             "format_on_save": "off"
+        },
+        "Python": {
+            "language_servers": ["!pylsp", "pyright"]
         }
     },
     "lsp": {
