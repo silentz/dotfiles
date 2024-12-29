@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import json
+import subprocess
+
+def setup_pyright():
+    result = subprocess.run(["poetry", "env", "info", "--path"], stdout=subprocess.PIPE, text=True)
+    venv_path = result.stdout.strip()
+    venv_dir = venv_path.split("/")[-1]
+    base_path = "/".join(venv_path.split("/")[:-1])
+
+    pyright_config = {
+        "venvPath": base_path,
+        "venv": venv_dir,
+        "reportMissingImports": False
+    }
+
+    with open("pyrightconfig.json", "w") as f:
+        json.dump(pyright_config, f, indent=4)
+
+    print("pyrightconfig.json created successfully!")
+
+if __name__ == "__main__":
+    setup_pyright()
