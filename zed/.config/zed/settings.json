@@ -47,7 +47,7 @@
     },
     "assistant": {
         "version": "2",
-        "enabled": false
+        "enabled": true
     },
     "autosave": "off",
     "tab_bar": {
